@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 import { getCodeSandboxHost } from "@codesandbox/utils";
+import SearchBar from "./components/SearchBar/SearchBar"; // Ensure you have the SearchBar component
 
 type Hotel = {
   _id: string;
@@ -90,21 +91,12 @@ function App() {
         <div className="row height d-flex justify-content-center align-items-center">
           <div className="col-md-6">
             <div className="dropdown">
-              <div className="form">
-                <i className="fa fa-search"></i>
-                <input
-                  type="text"
-                  className="form-control form-input"
-                  placeholder="Search accommodation..."
-                  value={searchValue} // Bind input to state
-                  onChange={fetchData}
-                />
-                {showClearBtn && (
-                  <span className="left-pan" onClick={clearSearch}>
-                    <i className="fa fa-close"></i>
-                  </span>
-                )}
-              </div>
+              <SearchBar
+                value={searchValue}
+                onChange={fetchData}
+                onClear={clearSearch}
+                showClearBtn={showClearBtn}
+              />
               {!!hotels.length && (
                 <div className="search-dropdown-menu dropdown-menu w-100 show p-2">
                   <h2>Hotels</h2>
