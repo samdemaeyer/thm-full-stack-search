@@ -9,6 +9,8 @@ interface ResultsListProps {
   countries: Country[];
   cities: City[];
   showResults: boolean;
+  isLoading: boolean; // New prop for loading state
+  isError: boolean; // New prop for error state
 }
 
 const ResultsList: React.FC<ResultsListProps> = ({
@@ -16,8 +18,13 @@ const ResultsList: React.FC<ResultsListProps> = ({
   countries,
   cities,
   showResults,
+  isLoading,
+  isError,
 }) => {
   if (!showResults) return null;
+
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error fetching data.</p>;
 
   const renderList = (items: Item[], type: string) => {
     if (items.length) {
@@ -34,10 +41,10 @@ const ResultsList: React.FC<ResultsListProps> = ({
               } mr-2`}
             ></i>
             {type === "hotels"
-              ? item.hotel_name
+              ? (item as Hotel).hotel_name
               : type === "countries"
-              ? item.country
-              : item.name}
+              ? (item as Country).country
+              : (item as City).name}
           </a>
           <hr className="divider" />
         </li>

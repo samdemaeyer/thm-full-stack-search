@@ -6,7 +6,8 @@ import useSearchData from "../hooks/useSearchData";
 const SearchPage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [showClearBtn, setShowClearBtn] = useState(false);
-  const { hotels, countries, cities } = useSearchData(searchValue);
+  const { hotels, countries, cities, isLoading, isError } =
+    useSearchData(searchValue);
 
   const fetchData = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -36,6 +37,8 @@ const SearchPage = () => {
                 countries={countries}
                 cities={cities}
                 showResults={!!searchValue}
+                isLoading={isLoading} // New prop
+                isError={isError} // New prop
               />
             </div>
           </div>
