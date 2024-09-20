@@ -1,10 +1,11 @@
 import { useState, type ChangeEvent } from "react";
-import SearchBar from "./components/SearchBar/SearchBar"; // Ensure you have the SearchBar component
+import SearchBar from "./components/SearchBar/SearchBar";
+import ResultsList from "./components/ResultsList/ResultsList";
 import {
   fetchAndFilterHotels,
   fetchAndFilterCountries,
   fetchAndFilterCities,
-} from "./services/apiService"; // Update import path
+} from "./services/apiService";
 
 type Hotel = {
   _id: string;
@@ -22,13 +23,13 @@ function App() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [countries, setCountries] = useState<Country[]>([]);
   const [cities, setCities] = useState<City[]>([]);
-  const [searchValue, setSearchValue] = useState(""); // Track search input
+  const [searchValue, setSearchValue] = useState("");
   const [showClearBtn, setShowClearBtn] = useState(false);
 
   const fetchData = async (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    setSearchValue(value); // Update search input state
-    setShowClearBtn(!!value); // Show clear button only when there's input
+    setSearchValue(value);
+    setShowClearBtn(!!value);
 
     if (value === "") {
       setHotels([]);
@@ -45,7 +46,6 @@ function App() {
     setCities(filteredCities);
   };
 
-  // Handler for clearing search input and results
   const clearSearch = () => {
     setSearchValue("");
     setHotels([]);
@@ -61,66 +61,17 @@ function App() {
           <div className="col-md-6">
             <div className="dropdown">
               <SearchBar
-                value={searchValue} // Bind input to state
+                value={searchValue}
                 onChange={fetchData}
                 onClear={clearSearch}
                 showClearBtn={showClearBtn}
               />
-              {!!hotels.length && (
-                <div className="search-dropdown-menu dropdown-menu w-100 show p-2">
-                  <h2>Hotels</h2>
-                  {hotels.length ? (
-                    hotels.map((hotel) => (
-                      <li key={hotel._id}>
-                        <a
-                          href={`/hotels/${hotel._id}`}
-                          className="dropdown-item"
-                        >
-                          <i className="fa fa-building mr-2"></i>
-                          {hotel.hotel_name}
-                        </a>
-                        <hr className="divider" />
-                      </li>
-                    ))
-                  ) : (
-                    <p>No hotels matched</p>
-                  )}
-                  <h2>Countries</h2>
-                  {countries.length ? (
-                    countries.map((country) => (
-                      <li key={country._id}>
-                        <a
-                          href={`/countries/${country._id}`}
-                          className="dropdown-item"
-                        >
-                          <i className="fa fa-flag mr-2"></i>
-                          {country.country}
-                        </a>
-                        <hr className="divider" />
-                      </li>
-                    ))
-                  ) : (
-                    <p>No countries matched</p>
-                  )}
-                  <h2>Cities</h2>
-                  {cities.length ? (
-                    cities.map((city) => (
-                      <li key={city._id}>
-                        <a
-                          href={`/cities/${city._id}`}
-                          className="dropdown-item"
-                        >
-                          <i className="fa fa-globe mr-2"></i>
-                          {city.name}
-                        </a>
-                        <hr className="divider" />
-                      </li>
-                    ))
-                  ) : (
-                    <p>No cities matched</p>
-                  )}
-                </div>
-              )}
+              <ResultsList
+                hotels={hotels}
+                countries={countries}
+                cities={cities}
+                showResults={!!searchValue}
+              />
             </div>
           </div>
         </div>
