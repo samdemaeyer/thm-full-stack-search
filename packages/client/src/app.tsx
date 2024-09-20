@@ -52,24 +52,36 @@ function App() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [countries, setCountries] = useState<Country[]>([]);
   const [cities, setCities] = useState<City[]>([]);
+  const [searchValue, setSearchValue] = useState(""); // Track search input
   const [showClearBtn, setShowClearBtn] = useState(false);
 
   const fetchData = async (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value === "") {
+    const value = event.target.value;
+    setSearchValue(value); // Update search input state
+    setShowClearBtn(!!value); // Show clear button only when there's input
+
+    if (value === "") {
       setHotels([]);
       setCountries([]);
       setCities([]);
-      setShowClearBtn(false);
       return;
     }
 
-    const filteredHotels = await fetchAndFilterHotels(event.target.value);
-    const filteredCountries = await fetchAndFilterCountries(event.target.value);
-    const filteredCities = await fetchAndFilterCities(event.target.value);
-    setShowClearBtn(true);
+    const filteredHotels = await fetchAndFilterHotels(value);
+    const filteredCountries = await fetchAndFilterCountries(value);
+    const filteredCities = await fetchAndFilterCities(value);
     setHotels(filteredHotels);
     setCountries(filteredCountries);
     setCities(filteredCities);
+  };
+
+  // Handler for clearing search input and results
+  const clearSearch = () => {
+    setSearchValue("");
+    setHotels([]);
+    setCountries([]);
+    setCities([]);
+    setShowClearBtn(false);
   };
 
   return (
@@ -84,10 +96,11 @@ function App() {
                   type="text"
                   className="form-control form-input"
                   placeholder="Search accommodation..."
+                  value={searchValue} // Bind input to state
                   onChange={fetchData}
                 />
                 {showClearBtn && (
-                  <span className="left-pan">
+                  <span className="left-pan" onClick={clearSearch}>
                     <i className="fa fa-close"></i>
                   </span>
                 )}
@@ -96,8 +109,8 @@ function App() {
                 <div className="search-dropdown-menu dropdown-menu w-100 show p-2">
                   <h2>Hotels</h2>
                   {hotels.length ? (
-                    hotels.map((hotel, index) => (
-                      <li key={index}>
+                    hotels.map((hotel) => (
+                      <li key={hotel._id}>
                         <a
                           href={`/hotels/${hotel._id}`}
                           className="dropdown-item"
@@ -113,8 +126,8 @@ function App() {
                   )}
                   <h2>Countries</h2>
                   {countries.length ? (
-                    countries.map((country, index) => (
-                      <li key={index}>
+                    countries.map((country) => (
+                      <li key={country._id}>
                         <a
                           href={`/countries/${country._id}`}
                           className="dropdown-item"
@@ -128,11 +141,10 @@ function App() {
                   ) : (
                     <p>No countries matched</p>
                   )}
-
                   <h2>Cities</h2>
                   {cities.length ? (
-                    cities.map((city, index) => (
-                      <li key={index}>
+                    cities.map((city) => (
+                      <li key={city._id}>
                         <a
                           href={`/cities/${city._id}`}
                           className="dropdown-item"
