@@ -29,52 +29,43 @@ const ResultsList: React.FC<ResultsListProps> = ({
   cities,
   showResults,
 }) => {
-  if (!showResults) return null; // Don't render if showResults is false
+  if (!showResults) return null;
+
+  const renderList = (items: any[], type: string) => {
+    if (items.length) {
+      return items.map((item) => (
+        <li key={item._id}>
+          <a href={`/${type}/${item._id}`} className="dropdown-item">
+            <i
+              className={`fa fa-${
+                type === "hotels"
+                  ? "building"
+                  : type === "countries"
+                  ? "flag"
+                  : "globe"
+              } mr-2`}
+            ></i>
+            {type === "hotels"
+              ? item.hotel_name
+              : type === "countries"
+              ? item.country
+              : item.name}
+          </a>
+          <hr className="divider" />
+        </li>
+      ));
+    }
+    return <p>No {type.slice(0, -1)} matched</p>;
+  };
 
   return (
     <div className="search-dropdown-menu dropdown-menu w-100 show p-2">
       <h2>Hotels</h2>
-      {hotels.length ? (
-        hotels.map((hotel) => (
-          <li key={hotel._id}>
-            <a href={`/hotels/${hotel._id}`} className="dropdown-item">
-              <i className="fa fa-building mr-2"></i>
-              {hotel.hotel_name}
-            </a>
-            <hr className="divider" />
-          </li>
-        ))
-      ) : (
-        <p>No hotels matched</p>
-      )}
+      {renderList(hotels, "hotels")}
       <h2>Countries</h2>
-      {countries.length ? (
-        countries.map((country) => (
-          <li key={country._id}>
-            <a href={`/countries/${country._id}`} className="dropdown-item">
-              <i className="fa fa-flag mr-2"></i>
-              {country.country}
-            </a>
-            <hr className="divider" />
-          </li>
-        ))
-      ) : (
-        <p>No countries matched</p>
-      )}
+      {renderList(countries, "countries")}
       <h2>Cities</h2>
-      {cities.length ? (
-        cities.map((city) => (
-          <li key={city._id}>
-            <a href={`/cities/${city._id}`} className="dropdown-item">
-              <i className="fa fa-globe mr-2"></i>
-              {city.name}
-            </a>
-            <hr className="divider" />
-          </li>
-        ))
-      ) : (
-        <p>No cities matched</p>
-      )}
+      {renderList(cities, "cities")}
     </div>
   );
 };
