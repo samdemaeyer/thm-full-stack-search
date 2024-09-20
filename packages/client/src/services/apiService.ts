@@ -1,5 +1,3 @@
-// src/services/apiService.ts
-
 import { getCodeSandboxHost } from "@codesandbox/utils";
 
 type Hotel = {

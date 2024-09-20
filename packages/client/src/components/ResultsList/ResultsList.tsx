@@ -1,20 +1,8 @@
 import React from "react";
+import { Hotel, Country, City } from "../../types/models";
 import "./ResultList.css";
 
-type Hotel = {
-  _id: string;
-  hotel_name: string;
-};
-
-type Country = {
-  _id: string;
-  country: string;
-};
-
-type City = {
-  _id: string;
-  name: string;
-};
+type Item = Hotel | Country | City;
 
 interface ResultsListProps {
   hotels: Hotel[];
@@ -31,7 +19,7 @@ const ResultsList: React.FC<ResultsListProps> = ({
 }) => {
   if (!showResults) return null;
 
-  const renderList = (items: any[], type: string) => {
+  const renderList = (items: Item[], type: string) => {
     if (items.length) {
       return items.map((item) => (
         <li key={item._id}>
