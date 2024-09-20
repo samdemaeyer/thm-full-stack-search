@@ -1,6 +1,10 @@
 import { useState, type ChangeEvent } from "react";
-import { getCodeSandboxHost } from "@codesandbox/utils";
 import SearchBar from "./components/SearchBar/SearchBar"; // Ensure you have the SearchBar component
+import {
+  fetchAndFilterHotels,
+  fetchAndFilterCountries,
+  fetchAndFilterCities,
+} from "./services/apiService"; // Update import path
 
 type Hotel = {
   _id: string;
@@ -13,41 +17,6 @@ type Hotel = {
 type Country = { _id: string; country: string; countryisocode: string };
 
 type City = { _id: string; name: string };
-
-const codeSandboxHost = getCodeSandboxHost(3001);
-const API_URL = codeSandboxHost
-  ? `https://${codeSandboxHost}`
-  : "http://localhost:3001";
-
-const fetchAndFilterHotels = async (value: string) => {
-  const hotelsData = await fetch(`${API_URL}/hotels`);
-  const hotels = (await hotelsData.json()) as Hotel[];
-  return hotels.filter(
-    ({ chain_name, hotel_name, city, country }) =>
-      chain_name.toLowerCase().includes(value.toLowerCase()) ||
-      hotel_name.toLowerCase().includes(value.toLowerCase()) ||
-      city.toLowerCase().includes(value.toLowerCase()) ||
-      country.toLowerCase().includes(value.toLowerCase())
-  );
-};
-
-const fetchAndFilterCountries = async (value: string) => {
-  const countriesData = await fetch(`${API_URL}/countries`);
-  const countries = (await countriesData.json()) as Country[];
-  return countries.filter(
-    ({ country, countryisocode }) =>
-      countryisocode.toLowerCase().includes(value.toLowerCase()) ||
-      country.toLowerCase().includes(value.toLowerCase())
-  );
-};
-
-const fetchAndFilterCities = async (value: string) => {
-  const citiesData = await fetch(`${API_URL}/cities`);
-  const cities = (await citiesData.json()) as City[];
-  return cities.filter(({ name }) =>
-    name.toLowerCase().includes(value.toLowerCase())
-  );
-};
 
 function App() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
@@ -92,7 +61,7 @@ function App() {
           <div className="col-md-6">
             <div className="dropdown">
               <SearchBar
-                value={searchValue}
+                value={searchValue} // Bind input to state
                 onChange={fetchData}
                 onClear={clearSearch}
                 showClearBtn={showClearBtn}
