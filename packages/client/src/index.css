@@ -37,17 +37,3 @@ body {
 .height {
   height: 100vh;
 }
-
-.avatar-thumb {
-  border-radius: 50%;
-  max-width: 40px;
-}
-
-.divider {
-  margin: 0.5rem;
-}
-
-.search-dropdown-menu {
-  max-height: 450px;
-  overflow: scroll;
-}

@@ -1,9 +1,3 @@
-.avatar-thumb {
-  border-radius: 50%;
-  max-width: 40px;
-}
-/* avatar-thumb is not needed, investigate to remove it later */
-
 .divider {
   margin: 0.5rem;
 }
