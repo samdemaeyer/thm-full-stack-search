@@ -37,8 +37,8 @@ const SearchPage = () => {
                 countries={countries}
                 cities={cities}
                 showResults={!!searchValue}
-                isLoading={isLoading} // New prop
-                isError={isError} // New prop
+                isLoading={isLoading}
+                isError={isError}
               />
             </div>
           </div>

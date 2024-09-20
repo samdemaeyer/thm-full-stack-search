@@ -1,5 +1,6 @@
 import React from "react";
 import { Hotel, Country, City } from "../../types/models";
+import { getIconClass } from "../../utils/iconHelper";
 import "./ResultList.css";
 
 type Item = Hotel | Country | City;
@@ -9,8 +10,8 @@ interface ResultsListProps {
   countries: Country[];
   cities: City[];
   showResults: boolean;
-  isLoading: boolean; // New prop for loading state
-  isError: boolean; // New prop for error state
+  isLoading: boolean;
+  isError: boolean;
 }
 
 const ResultsList: React.FC<ResultsListProps> = ({
@@ -31,15 +32,7 @@ const ResultsList: React.FC<ResultsListProps> = ({
       return items.map((item) => (
         <li key={item._id}>
           <a href={`/${type}/${item._id}`} className="dropdown-item">
-            <i
-              className={`fa fa-${
-                type === "hotels"
-                  ? "building"
-                  : type === "countries"
-                  ? "flag"
-                  : "globe"
-              } mr-2`}
-            ></i>
+            <i className={`fa ${getIconClass(type)} mr-2`}></i>
             {type === "hotels"
               ? (item as Hotel).hotel_name
               : type === "countries"
