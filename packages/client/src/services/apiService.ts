@@ -1,16 +1,5 @@
 import { getCodeSandboxHost } from "@codesandbox/utils";
-
-type Hotel = {
-  _id: string;
-  chain_name: string;
-  hotel_name: string;
-  city: string;
-  country: string;
-};
-
-type Country = { _id: string; country: string; countryisocode: string };
-
-type City = { _id: string; name: string };
+import { Hotel, Country, City } from "../types/models";
 
 const codeSandboxHost = getCodeSandboxHost(3001);
 const API_URL = codeSandboxHost

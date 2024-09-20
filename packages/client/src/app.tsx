@@ -1,13 +1,13 @@
 import { useState, type ChangeEvent } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
 import ResultsList from "./components/ResultsList/ResultsList";
-import useSearchData from "./hooks/useSearchData"; // Import your custom hook
+import useSearchData from "./hooks/useSearchData";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
   const [showClearBtn, setShowClearBtn] = useState(false);
-
-  const { hotels, countries, cities } = useSearchData(searchValue); // Use the hook
+  // Use the hook
+  const { hotels, countries, cities } = useSearchData(searchValue);
 
   const fetchData = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
