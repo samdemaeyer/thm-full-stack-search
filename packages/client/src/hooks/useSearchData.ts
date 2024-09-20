@@ -1,37 +1,37 @@
-import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
   fetchAndFilterHotels,
   fetchAndFilterCountries,
   fetchAndFilterCities,
 } from "../services/apiService";
-import { Hotel, Country, City } from "../types/models";
 
 const useSearchData = (searchValue: string) => {
-  const [hotels, setHotels] = useState<Hotel[]>([]);
-  const [countries, setCountries] = useState<Country[]>([]);
-  const [cities, setCities] = useState<City[]>([]);
+  const { data: hotels = [], isLoading: loadingHotels } = useQuery({
+    queryKey: ["hotels", searchValue],
+    queryFn: () => fetchAndFilterHotels(searchValue),
+    enabled: !!searchValue,
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (searchValue === "") {
-        setHotels([]);
-        setCountries([]);
-        setCities([]);
-        return;
-      }
+  const { data: countries = [], isLoading: loadingCountries } = useQuery({
+    queryKey: ["countries", searchValue],
+    queryFn: () => fetchAndFilterCountries(searchValue),
+    enabled: !!searchValue,
+  });
 
-      const filteredHotels = await fetchAndFilterHotels(searchValue);
-      const filteredCountries = await fetchAndFilterCountries(searchValue);
-      const filteredCities = await fetchAndFilterCities(searchValue);
+  const { data: cities = [], isLoading: loadingCities } = useQuery({
+    queryKey: ["cities", searchValue],
+    queryFn: () => fetchAndFilterCities(searchValue),
+    enabled: !!searchValue,
+  });
 
-      setHotels(filteredHotels);
-      setCountries(filteredCountries);
-      setCities(filteredCities);
-    };
-
-    fetchData();
-  }, [searchValue]);
-  return { hotels, countries, cities };
+  return {
+    hotels,
+    countries,
+    cities,
+    loadingHotels,
+    loadingCountries,
+    loadingCities,
+  };
 };
 
 export default useSearchData;
