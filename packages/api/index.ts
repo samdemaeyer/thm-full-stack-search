@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 
 dotenv.config();
 
@@ -60,6 +60,57 @@ app.get("/cities", async (req, res) => {
     const db = mongoClient.db();
     const collection = db.collection("cities");
     res.send(await collection.find().toArray());
+  } finally {
+    await mongoClient.close();
+  }
+});
+
+// Endpoint for fetching a specific hotel by ID
+app.get("/hotels/:id", async (req, res) => {
+  const { id } = req.params;
+  const mongoClient = new MongoClient(DATABASE_URL);
+
+  try {
+    await mongoClient.connect();
+    const db = mongoClient.db();
+    const collection = db.collection("hotels");
+    const hotel = await collection.findOne({ _id: new ObjectId(id) });
+    if (!hotel) return res.status(404).send("Hotel not found");
+    res.send(hotel);
+  } finally {
+    await mongoClient.close();
+  }
+});
+
+// Endpoint for fetching a specific country by ID
+app.get("/countries/:id", async (req, res) => {
+  const { id } = req.params;
+  const mongoClient = new MongoClient(DATABASE_URL);
+
+  try {
+    await mongoClient.connect();
+    const db = mongoClient.db();
+    const collection = db.collection("countries");
+    const country = await collection.findOne({ _id: new ObjectId(id) });
+    if (!country) return res.status(404).send("Country not found");
+    res.send(country);
+  } finally {
+    await mongoClient.close();
+  }
+});
+
+// Endpoint for fetching a specific city by ID
+app.get("/cities/:id", async (req, res) => {
+  const { id } = req.params;
+  const mongoClient = new MongoClient(DATABASE_URL);
+
+  try {
+    await mongoClient.connect();
+    const db = mongoClient.db();
+    const collection = db.collection("cities");
+    const city = await collection.findOne({ _id: new ObjectId(id) });
+    if (!city) return res.status(404).send("City not found");
+    res.send(city);
   } finally {
     await mongoClient.close();
   }
