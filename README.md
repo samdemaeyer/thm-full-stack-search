@@ -90,7 +90,85 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 
 <!-- Write-up/conclusion section -->
 
-_When all the behaviour is implemented, feel free to add some observations or conclusions you like to share in the section_
+# TryHackMe Challenge Notes
+
+## Setup
+1. Fork the repo
+2. Clone it
+3. Run `npm install`
+4. Ensure it runs on `npm run start`
+
+## Features Implemented
+- **Add new endpoints for cities and countries**  
+  [PR #1](https://github.com/Karaterzidi/thm-full-stack-search/pull/1)
+  
+- **Fetch country and city results and display them on the search bar based on user input**  
+  [PR #2](https://github.com/Karaterzidi/thm-full-stack-search/pull/2)
+
+- **Clear search field and results when clicking the close button**  
+  [PR #3](https://github.com/Karaterzidi/thm-full-stack-search/pull/3)
+
+- **Create reusable component for the search bar and its CSS**  
+  [PR #4](https://github.com/Karaterzidi/thm-full-stack-search/pull/4)
+
+- **Separation of concerns: Created apiService to handle data fetching and filtering for hotels, cities, and countries**  
+  [PR #5](https://github.com/Karaterzidi/thm-full-stack-search/pull/5)
+
+- **Create reusable component for the ResultList and its CSS**  
+  [PR #6](https://github.com/Karaterzidi/thm-full-stack-search/pull/6)  
+  [PR #7](https://github.com/Karaterzidi/thm-full-stack-search/pull/7)
+
+- **Cleaned unused CSS**  
+  [PR #8](https://github.com/Karaterzidi/thm-full-stack-search/pull/8)
+
+- **Refactor ResultList component**  
+  [PR #9](https://github.com/Karaterzidi/thm-full-stack-search/pull/9)
+
+- **Separation of concerns: Created models.ts**  
+  [PR #10](https://github.com/Karaterzidi/thm-full-stack-search/pull/10)
+
+- **Removed missing logos to fix console errors**  
+  [PR #11](https://github.com/Karaterzidi/thm-full-stack-search/pull/11)
+
+- **Refactored data fetching logic into a custom hook `useSearchData`**  
+  [PR #12](https://github.com/Karaterzidi/thm-full-stack-search/pull/12)
+
+- **Import models in apiService**  
+  [PR #13](https://github.com/Karaterzidi/thm-full-stack-search/pull/13)
+
+- **Moved API URL configuration logic to a separate `apiConstants.ts` file**  
+  [PR #14](https://github.com/Karaterzidi/thm-full-stack-search/pull/14)
+
+- **Installed `react-router-dom` for dynamic routing**  
+
+- **Moved search to a SearchPage component**  
+  [PR #15](https://github.com/Karaterzidi/thm-full-stack-search/pull/15)
+
+- **React Query integration**  
+  [PR #16](https://github.com/Karaterzidi/thm-full-stack-search/pull/16)
+
+- **Refactored result list icons by creating a helper**  
+  [PR #17](https://github.com/Karaterzidi/thm-full-stack-search/pull/17)
+
+- **Memoized result items**  
+  [PR #18](https://github.com/Karaterzidi/thm-full-stack-search/pull/18)
+
+- **Implemented a single page for the details of each country, hotel, and city**  
+  [PR #19](https://github.com/Karaterzidi/thm-full-stack-search/pull/19)
+
+- **Implemented a 404 page for non-existent routes with a user-friendly message and a call-to-action to return to the homepage**  
+  [PR #20](https://github.com/Karaterzidi/thm-full-stack-search/pull/20)
+
+- **Enhancements to ItemDetailPage and added a CTA button to return to homepage**  
+  [PR #21](https://github.com/Karaterzidi/thm-full-stack-search/pull/21)
+
+- **Updated styling for the 'no matches' message to align with the rest of results**  
+- **Added an h1 element to the homepage for improved semantic structure**  
+  [PR #22](https://github.com/Karaterzidi/thm-full-stack-search/pull/22)
+
+## Conclusion
+I documented the steps I took to evaluate my mindset and improve my expertise in React, allowing me to reflect on my process and identify any potential areas for improvement.
+
 
 ### Database structure
 
