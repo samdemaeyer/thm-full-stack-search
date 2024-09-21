@@ -2,12 +2,17 @@ import { useState, type ChangeEvent } from "react";
 import SearchBar from "../components/SearchBar/SearchBar";
 import ResultsList from "../components/ResultsList/ResultsList";
 import useSearchData from "../hooks/useSearchData";
+import useDebounce from "../hooks/useDebounce";
 
 const SearchPage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [showClearBtn, setShowClearBtn] = useState(false);
+
+  // Use the debounce hook
+  const debouncedSearchValue = useDebounce(searchValue, 300);
+
   const { hotels, countries, cities, isLoading, isError } =
-    useSearchData(searchValue);
+    useSearchData(debouncedSearchValue);
 
   const fetchData = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -39,7 +44,7 @@ const SearchPage = () => {
                 hotels={hotels}
                 countries={countries}
                 cities={cities}
-                showResults={!!searchValue}
+                showResults={!!debouncedSearchValue}
                 isLoading={isLoading}
                 isError={isError}
               />
