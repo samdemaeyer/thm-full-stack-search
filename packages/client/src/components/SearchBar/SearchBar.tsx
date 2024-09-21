@@ -8,7 +8,7 @@ type SearchBarProps = {
   showClearBtn: boolean;
 };
 
-const SearchBar: React.FC<SearchBarProps> = ({
+const SearchBarComponent: React.FC<SearchBarProps> = ({
   value,
   onChange,
   onClear,
@@ -33,5 +33,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
     </div>
   );
 };
+
+const SearchBar = React.memo(SearchBarComponent);
+SearchBar.displayName = "SearchBar"; // Explicitly set the display name for React.memo
 
 export default SearchBar;
