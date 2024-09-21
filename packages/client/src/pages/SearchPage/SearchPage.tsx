@@ -5,7 +5,7 @@ import { useSearchLogic } from "../../hooks/useSearchLogic";
 import "./SearchPage.css";
 
 const SearchPage = () => {
-  const debounceDelay = 200;
+  const debounceDelay = 300;
 
   // Use the custom hook to manage the search logic
   const {
@@ -18,18 +18,6 @@ const SearchPage = () => {
     isLoading,
     isError,
   } = useSearchLogic("", debounceDelay);
-
-  // Display loading message if data is being fetched
-  if (isLoading) {
-    return <div className="loading-message">Loading...</div>;
-  }
-
-  // Display error message if something goes wrong
-  if (isError) {
-    return (
-      <div className="error-message">An error occurred. Please try again.</div>
-    );
-  }
 
   return (
     <div className="App">
@@ -49,9 +37,9 @@ const SearchPage = () => {
             <div className="dropdown">
               <SearchBar
                 value={searchValue}
-                onChange={fetchData}
+                onChange={fetchData} // This just updates the input value
                 onClear={clearSearch}
-                showClearBtn={searchValue.length > 0} // Using length to control the visibility of the clear button
+                showClearBtn={searchValue.length > 0}
               />
               <ResultsList
                 hotels={hotels}
