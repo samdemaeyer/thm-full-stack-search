@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { fetchDetails } from "../utils/fetchDetails";
-import { Hotel, Country, City } from "../types/models";
+import { fetchDetails } from "../../utils/fetchDetails";
+import { Hotel, Country, City } from "../../types/models";
+import SEO from "../../components/SEO/SEO";
+import "./ItemDetailPage.css";
 
 const ItemDetailPage: React.FC = () => {
   const { type, id } = useParams<{ type: string; id: string }>();
@@ -50,11 +52,31 @@ const ItemDetailPage: React.FC = () => {
   // Only render the detail if details are available
   if (!details) return null;
 
+  let title = "";
+  let description = "";
+  if (type === "hotels" && details) {
+    title = (details as Hotel).hotel_name;
+    description = `Find information about ${title}, including address and star rating.`;
+  } else if (type === "countries" && details) {
+    title = (details as Country).country;
+    description = `Learn more about ${title}, including its ISO code.`;
+  } else if (type === "cities" && details) {
+    title = (details as City).name;
+    description = `Explore the city of ${title}.`;
+  }
+
   return (
     <div
       className="container d-flex flex-column justify-content-center align-items-center height"
       role="main"
     >
+      <SEO
+        title={title}
+        description={description}
+        url={window.location.href}
+        image="URL_TO_YOUR_IMAGE"
+        type="website"
+      />
       {type === "hotels" && details && (
         <>
           <h1 className="text-white mb-4">{(details as Hotel).hotel_name}</h1>
@@ -91,7 +113,7 @@ const ItemDetailPage: React.FC = () => {
       )}
       <Link
         to="/"
-        className="not-found-cta text-decoration-none"
+        className="return-cta text-decoration-none"
         aria-label="Return to the search page"
       >
         Return to search
