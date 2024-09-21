@@ -6,13 +6,15 @@ import {
 } from "../services/apiService";
 
 const useSearchData = (searchValue: string) => {
+  const lowerCaseValue = searchValue.toLowerCase();
+
   const {
     data: hotels = [],
     isLoading: loadingHotels,
     isError: errorHotels,
   } = useQuery({
-    queryKey: ["hotels", searchValue],
-    queryFn: () => fetchAndFilterHotels(searchValue),
+    queryKey: ["hotels", lowerCaseValue],
+    queryFn: () => fetchAndFilterHotels(lowerCaseValue),
     enabled: !!searchValue,
   });
 
@@ -21,8 +23,8 @@ const useSearchData = (searchValue: string) => {
     isLoading: loadingCountries,
     isError: errorCountries,
   } = useQuery({
-    queryKey: ["countries", searchValue],
-    queryFn: () => fetchAndFilterCountries(searchValue),
+    queryKey: ["countries", lowerCaseValue],
+    queryFn: () => fetchAndFilterCountries(lowerCaseValue),
     enabled: !!searchValue,
   });
 
@@ -31,8 +33,8 @@ const useSearchData = (searchValue: string) => {
     isLoading: loadingCities,
     isError: errorCities,
   } = useQuery({
-    queryKey: ["cities", searchValue],
-    queryFn: () => fetchAndFilterCities(searchValue),
+    queryKey: ["cities", lowerCaseValue],
+    queryFn: () => fetchAndFilterCities(lowerCaseValue),
     enabled: !!searchValue,
   });
 
