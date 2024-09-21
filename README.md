@@ -197,6 +197,8 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
  - **Applied React.memo to SearchBar and ResultsList components.**  
   [PR #33]( https://github.com/Karaterzidi/thm-full-stack-search/pull/33)
  
+ - **Fix debounce search logic hook.**  
+  [PR #34]( https://github.com/Karaterzidi/thm-full-stack-search/pull/34)
 
 ## General Improvements
 
