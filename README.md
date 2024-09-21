@@ -167,7 +167,7 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Implement debounce functionality for the search input to improve performance and reduce unnecessary API calls.**  
   [PR #23](https://github.com/Karaterzidi/thm-full-stack-search/pull/23)
 
-  - **  Implemented initial accessibility improvements across various components.**  
+- **  Implemented initial accessibility improvements across various components.**  
   [PR #24](https://github.com/Karaterzidi/thm-full-stack-search/pull/24)
 
 
