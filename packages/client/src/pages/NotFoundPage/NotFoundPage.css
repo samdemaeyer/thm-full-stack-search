@@ -1,0 +1,13 @@
+.not-found-cta {
+  font-size: 1rem;
+  margin-top: 20px;
+  color: #151c2b;
+  background-color: #8ece3e;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.not-found-cta:hover {
+  background-color: #70c00f;
+  color: #151c2b;
+}
