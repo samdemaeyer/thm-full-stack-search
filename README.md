@@ -173,6 +173,9 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Created a SEO component using react-helmet-async to set dynamic metadata across pages.**  
   [PR #25](https://github.com/Karaterzidi/thm-full-stack-search/pull/25)
 
+- **Update apple-touch-icon in index.html.**  
+  [PR #26](https://github.com/Karaterzidi/thm-full-stack-search/pull/26)
+
 
 
 
