@@ -1,4 +1,3 @@
-import React from "react";
 import { HelmetProvider } from "react-helmet-async";
 import SearchPage from "./pages/SearchPage";
 import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
