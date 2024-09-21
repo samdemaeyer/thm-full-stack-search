@@ -1,5 +1,5 @@
 import { HelmetProvider } from "react-helmet-async";
-import SearchPage from "./pages/SearchPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
