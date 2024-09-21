@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { fetchDetails } from "../utils/fetchDetails";
 import { Hotel, Country, City } from "../types/models";
-import { Link } from "react-router-dom";
 
 const ItemDetailPage: React.FC = () => {
   const { type, id } = useParams<{ type: string; id: string }>();
@@ -41,13 +40,21 @@ const ItemDetailPage: React.FC = () => {
   }, [type, id]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p className="error">{error}</p>;
+  if (error)
+    return (
+      <p className="error" role="alert">
+        {error}
+      </p>
+    );
 
   // Only render the detail if details are available
   if (!details) return null;
 
   return (
-    <div className="container d-flex flex-column justify-content-center align-items-center height">
+    <div
+      className="container d-flex flex-column justify-content-center align-items-center height"
+      role="main"
+    >
       {type === "hotels" && details && (
         <>
           <h1 className="text-white mb-4">{(details as Hotel).hotel_name}</h1>
@@ -82,7 +89,11 @@ const ItemDetailPage: React.FC = () => {
           <h1 className="text-white mb-4">{(details as City).name}</h1>
         </>
       )}
-      <Link to="/" className="not-found-cta text-decoration-none">
+      <Link
+        to="/"
+        className="not-found-cta text-decoration-none"
+        aria-label="Return to the search page"
+      >
         Return to search
       </Link>
     </div>

@@ -16,18 +16,19 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   return (
     <div className="form">
-      <i className="fa fa-search"></i>
+      <i className="fa fa-search" aria-hidden="true"></i>
       <input
         type="text"
         className="form-control form-input"
         placeholder="Search accommodation..."
         value={value}
         onChange={onChange}
+        aria-label="Search accommodation"
       />
       {showClearBtn && (
-        <span className="left-pan" onClick={onClear}>
-          <i className="fa fa-close"></i>
-        </span>
+        <button onClick={onClear} aria-label="Clear search">
+          <i className="fa fa-close" aria-hidden="true"></i>
+        </button>
       )}
     </div>
   );
