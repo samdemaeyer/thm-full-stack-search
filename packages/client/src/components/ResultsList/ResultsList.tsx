@@ -33,7 +33,7 @@ const ResultsList: React.FC<ResultsListProps> = ({
         <ResultItem key={item._id} item={item} type={type} />
       ));
     }
-    return <p>No {type.slice(0, -1)} matched</p>;
+    return <p className="no-match-found">No {type.slice(0, -1)}s matched</p>;
   };
 
   return (
