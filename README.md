@@ -167,7 +167,6 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
   [PR #22](https://github.com/Karaterzidi/thm-full-stack-search/pull/22)
 
 - **Implement debounce functionality for the search input to improve performance and reduce unnecessary API calls.**  
-- **Added an h1 element to the homepage for improved semantic structure**  
   [PR #23](https://github.com/Karaterzidi/thm-full-stack-search/pull/23)
 
 ## Conclusion
