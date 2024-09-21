@@ -194,6 +194,10 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
  - **Moved the toLowerCase() logic out of the fetch functions and into the useSearchData hook.**  
   [PR #32]( https://github.com/Karaterzidi/thm-full-stack-search/pull/32)
 
+ - **Applied React.memo to SearchBar and ResultsList components.**  
+  [PR #33]( https://github.com/Karaterzidi/thm-full-stack-search/pull/33)
+ 
+
 
 
 
