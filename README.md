@@ -170,6 +170,10 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Implemented initial accessibility improvements across various components.**  
   [PR #24](https://github.com/Karaterzidi/thm-full-stack-search/pull/24)
 
+- **Created a SEO component using react-helmet-async to set dynamic metadata across pages.**  
+  [PR #25](https://github.com/Karaterzidi/thm-full-stack-search/pull/25)
+
+
 
 
 
