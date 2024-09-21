@@ -1,33 +1,35 @@
-import { useState, type ChangeEvent } from "react";
-import SEO from "../components/SEO/SEO";
-import SearchBar from "../components/SearchBar/SearchBar";
-import ResultsList from "../components/ResultsList/ResultsList";
-import useSearchData from "../hooks/useSearchData";
-import useDebounce from "../hooks/useDebounce";
+import SEO from "../../components/SEO/SEO";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import ResultsList from "../../components/ResultsList/ResultsList";
+import { useSearchLogic } from "../../hooks/useSearchLogic";
+import "./SearchPage.css";
 
 const SearchPage = () => {
-  const [searchValue, setSearchValue] = useState("");
-  const [showClearBtn, setShowClearBtn] = useState(false);
-
-  // Define debounce delay as a prop or constant, allowing flexibility for future adjustment.
   const debounceDelay = 200;
 
-  // Pass the configurable debounce delay to the useDebounce hook
-  const debouncedSearchValue = useDebounce(searchValue, debounceDelay);
+  // Use the custom hook to manage the search logic
+  const {
+    searchValue,
+    fetchData,
+    clearSearch,
+    hotels,
+    countries,
+    cities,
+    isLoading,
+    isError,
+  } = useSearchLogic("", debounceDelay);
 
-  const { hotels, countries, cities, isLoading, isError } =
-    useSearchData(debouncedSearchValue);
+  // Display loading message if data is being fetched
+  if (isLoading) {
+    return <div className="loading-message">Loading...</div>;
+  }
 
-  const fetchData = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setSearchValue(value);
-    setShowClearBtn(!!value);
-  };
-
-  const clearSearch = () => {
-    setSearchValue("");
-    setShowClearBtn(false);
-  };
+  // Display error message if something goes wrong
+  if (isError) {
+    return (
+      <div className="error-message">An error occurred. Please try again.</div>
+    );
+  }
 
   return (
     <div className="App">
@@ -49,13 +51,13 @@ const SearchPage = () => {
                 value={searchValue}
                 onChange={fetchData}
                 onClear={clearSearch}
-                showClearBtn={showClearBtn}
+                showClearBtn={searchValue.length > 0} // Using length to control the visibility of the clear button
               />
               <ResultsList
                 hotels={hotels}
                 countries={countries}
                 cities={cities}
-                showResults={!!debouncedSearchValue}
+                showResults={!!searchValue}
                 isLoading={isLoading}
                 isError={isError}
               />
