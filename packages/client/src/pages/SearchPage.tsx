@@ -25,6 +25,9 @@ const SearchPage = () => {
       <div className="container">
         <div className="row height d-flex justify-content-center align-items-center">
           <div className="col-md-6">
+            <h1 className="text-white text-center mb-3">
+              Find your next adventure
+            </h1>
             <div className="dropdown">
               <SearchBar
                 value={searchValue}
