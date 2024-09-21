@@ -90,8 +90,6 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 
 <!-- Write-up/conclusion section -->
 
-# TryHackMe Challenge Notes
-
 ## Setup
 1. Fork the repo
 2. Clone it
@@ -169,7 +167,7 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Implement debounce functionality for the search input to improve performance and reduce unnecessary API calls.**  
   [PR #23](https://github.com/Karaterzidi/thm-full-stack-search/pull/23)
 
-## Conclusion
+
 I documented the steps I took to evaluate my mindset and improve my expertise in React, allowing me to reflect on my process and identify any potential areas for improvement.
 
 
