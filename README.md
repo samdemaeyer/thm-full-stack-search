@@ -188,10 +188,11 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Refactored the debounce delay in SearchPage to be a configurable prop.**  
   [PR #30]( https://github.com/Karaterzidi/thm-full-stack-search/pull/30)
 
- - **Created a new useSearchLogic hook to encapsulate search input state management, debouncing, and data fetching..**  
+ - **Created a new useSearchLogic hook to encapsulate search input state management, debouncing, and data fetching.**  
   [PR #31]( https://github.com/Karaterzidi/thm-full-stack-search/pull/31)
 
-
+ - **Moved the toLowerCase() logic out of the fetch functions and into the useSearchData hook.**  
+  [PR #32]( https://github.com/Karaterzidi/thm-full-stack-search/pull/32)
 
 
 
