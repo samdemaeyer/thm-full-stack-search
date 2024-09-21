@@ -14,7 +14,7 @@ interface ResultsListProps {
   isError: boolean;
 }
 
-const ResultsList: React.FC<ResultsListProps> = ({
+const ResultsListComponent: React.FC<ResultsListProps> = ({
   hotels,
   countries,
   cities,
@@ -54,5 +54,8 @@ const ResultsList: React.FC<ResultsListProps> = ({
     </div>
   );
 };
+
+const ResultsList = React.memo(ResultsListComponent);
+ResultsList.displayName = "ResultsList"; // Explicitly set the display name for React.memo
 
 export default ResultsList;
