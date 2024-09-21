@@ -33,11 +33,18 @@ const ResultsList: React.FC<ResultsListProps> = ({
         <ResultItem key={item._id} item={item} type={type} />
       ));
     }
-    return <p className="no-match-found">No {type.slice(0, -1)}s matched</p>;
+    return (
+      <div tabIndex={0} className="no-match-found">
+        No {type.slice(0, -1)}s matched. Try a different search term.
+      </div>
+    );
   };
 
   return (
-    <div className="search-dropdown-menu dropdown-menu w-100 show p-2">
+    <div
+      className="search-dropdown-menu dropdown-menu w-100 show p-2"
+      aria-live="polite"
+    >
       <h2>Hotels</h2>
       {renderList(hotels, "hotels")}
       <h2>Countries</h2>

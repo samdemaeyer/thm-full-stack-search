@@ -9,20 +9,13 @@
   color: #9ca3af;
 }
 
-.form span {
+.form button {
   position: absolute;
   right: 17px;
   top: 13px;
   padding: 2px;
-  border-left: 1px solid #d1d5db;
-}
-
-.left-pan {
-  padding-left: 7px;
-}
-
-.left-pan i {
-  padding-left: 10px;
+  border: none;
+  background-color: transparent;
 }
 
 .form-input {

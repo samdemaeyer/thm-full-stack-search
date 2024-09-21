@@ -14,10 +14,19 @@ interface ResultItemProps {
 const ResultItem: React.FC<ResultItemProps> = React.memo(({ item, type }) => {
   return (
     <li key={item._id}>
-      <Link to={`/${type}/${item._id}`} className="dropdown-item">
-        {" "}
-        {/* Use Link instead of a */}
-        <i className={`fa ${getIconClass(type)} mr-2`}></i>
+      <Link
+        to={`/${type}/${item._id}`}
+        className="dropdown-item"
+        tabIndex={0}
+        aria-label={`View details for ${
+          type === "hotels"
+            ? (item as Hotel).hotel_name
+            : type === "countries"
+            ? (item as Country).country
+            : (item as City).name
+        }`}
+      >
+        <i className={`fa ${getIconClass(type)} mr-2`} aria-hidden="true"></i>
         {type === "hotels"
           ? (item as Hotel).hotel_name
           : type === "countries"
