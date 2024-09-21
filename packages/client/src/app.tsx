@@ -1,17 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react";
+import { HelmetProvider } from "react-helmet-async";
 import SearchPage from "./pages/SearchPage";
-import ItemDetailPage from "./pages/ItemDetailPage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<SearchPage />} />
-        <Route path="/:type/:id" element={<ItemDetailPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<SearchPage />} />
+          <Route path="/:type/:id" element={<ItemDetailPage />} />
+        </Routes>
+      </Router>
+    </HelmetProvider>
   );
 }
 
