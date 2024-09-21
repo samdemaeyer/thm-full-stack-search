@@ -185,6 +185,10 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Used interfaces instead of types ony my models.**  
   [PR #29]( https://github.com/Karaterzidi/thm-full-stack-search/pull/29)
 
+- **Refactored the debounce delay in SearchPage to be a configurable prop.**  
+  [PR #30]( https://github.com/Karaterzidi/thm-full-stack-search/pull/30)
+
+
  
 
 
