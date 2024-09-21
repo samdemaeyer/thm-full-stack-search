@@ -1,3 +1,8 @@
+// Using `interface` instead of `type` for these object models.
+// This decision was made because interfaces are more flexible and allow for future extension,
+// as they support declaration merging, even though this is currently a one-time assessment.
+// The application is written with a mindset that it could grow
+
 export interface Hotel {
   _id: string;
   chain_name: string;
@@ -12,13 +17,13 @@ export interface Hotel {
   star_rating: number;
 }
 
-export type Country = {
+export interface Country {
   _id: string;
   country: string;
   countryisocode: string;
-};
+}
 
-export type City = {
+export interface City {
   _id: string;
   name: string;
-};
+}
