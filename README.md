@@ -179,6 +179,9 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Removed the unnecessary React import from app.tsx as it's no longer needed with the React 17+ JSX transform..**  
   [PR #27](https://github.com/Karaterzidi/thm-full-stack-search/pull/27)
 
+- **Preload external styles to prevent FOUC..**  
+  [PR #28](https://github.com/Karaterzidi/thm-full-stack-search/pull/28)
+
 
 
 
