@@ -182,12 +182,18 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Preload external styles to prevent FOUC..**  
   [PR #28](https://github.com/Karaterzidi/thm-full-stack-search/pull/28)
 
+- **Used interfaces instead of types ony my models.**  
+  [PR #29]( https://github.com/Karaterzidi/thm-full-stack-search/pull/29)
+
+ 
 
 
 
 
 
-I documented the steps I took to evaluate my mindset and improve my expertise in React, allowing me to reflect on my process and identify any potential areas for improvement.
+
+I documented the steps I took to evaluate my mindset and improve my expertise in React, allowing me to reflect on my process and identify any potential areas for improvement. I also I have written comments throughout the code to explain the rationale behind my decisions.
+
 
 
 ### Database structure
