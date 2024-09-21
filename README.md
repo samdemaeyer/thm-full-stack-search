@@ -198,7 +198,30 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
   [PR #33]( https://github.com/Karaterzidi/thm-full-stack-search/pull/33)
  
 
+## General Improvements
 
+- **React.memo Optimization**: Applied `React.memo` to key components (`SearchBar` and `ResultsList`) to prevent unnecessary re-renders and improve performance.
+- **Centralized Debounce Logic**: Introduced a new hook `useSearchLogic` to centralize state management, debouncing, and data fetching, simplifying the `SearchPage` component.
+- **React Query Integration**: Improved data fetching and state management by introducing `React Query` for caching, synchronization, and error handling.
+
+  
+## API Enhancements
+
+- **Improved API Data Fetching**: Refactored the search functions to move repeated logic like `toLowerCase()` to one place, improving efficiency and code readability.
+  
+## Frontend Enhancements
+
+- **React Helmet SEO Management**: Integrated `react-helmet-async` to manage metadata dynamically for each page, enhancing SEO and social sharing capabilities.
+- **Improved Accessibility**: Added `aria-labels` and semantic elements to improve accessibility for all users.
+- **Debounce Implementation**: Added a debounce mechanism to optimize the search input, reducing unnecessary API calls and improving performance.
+- **Enhanced Search Experience**: Improved search functionality to provide a more responsive and dynamic experience when filtering results.
+  
+## Suggestions for the future
+
+- **Externalized API Configuration**: Suggested moving API configurations, such as `API_URL`, to a `.env` file for better environment-specific management and security.
+- **E2E Testing**: I would love to had implemented also e2e testing to ensure the entire application flow works as expected. While I don't have expertise in this area yet, I believe it would be beneficial for improving the quality and reliability of the project.
+- **Search Filters**: A possible future enhancement could be to add filters for the search functionality, allowing users to filter results by category (e.g., hotels, countries, or cities). This would provide a more refined search experience and allow users to quickly find what they are looking for.
+- **Country and City Listings**: When visiting a country detail page, it would be useful to list all the available cities and hotels in that country. Similarly, when visiting a city detail page, displaying all the available hotels in that city would enhance the user experience by providing more relevant information.
 
 
 I documented the steps I took to evaluate my mindset and improve my expertise in React, allowing me to reflect on my process and identify any potential areas for improvement. I also I have written comments throughout the code to explain the rationale behind my decisions.
