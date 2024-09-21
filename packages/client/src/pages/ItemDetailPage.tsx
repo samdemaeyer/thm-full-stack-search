@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchDetails } from "../utils/fetchDetails";
 import { Hotel, Country, City } from "../types/models";
+import { Link } from "react-router-dom";
 
 const ItemDetailPage: React.FC = () => {
   const { type, id } = useParams<{ type: string; id: string }>();
@@ -42,23 +43,48 @@ const ItemDetailPage: React.FC = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p className="error">{error}</p>;
 
+  // Only render the detail if details are available
+  if (!details) return null;
+
   return (
-    <div>
+    <div className="container d-flex flex-column justify-content-center align-items-center height">
       {type === "hotels" && details && (
-        <div>
-          <h1>{(details as Hotel).hotel_name}</h1>
-        </div>
+        <>
+          <h1 className="text-white mb-4">{(details as Hotel).hotel_name}</h1>
+          <p className="text-white">Chain: {(details as Hotel).chain_name}</p>
+          <p className="text-white">
+            Address: {(details as Hotel).addressline1}{" "}
+            {(details as Hotel).addressline2 &&
+              `, ${(details as Hotel).addressline2}`}
+          </p>
+          <p className="text-white">Zip Code: {(details as Hotel).zipcode}</p>
+          <p className="text-white">City: {(details as Hotel).city}</p>
+          <p className="text-white">State: {(details as Hotel).state}</p>
+          <p className="text-white">
+            Country: {(details as Hotel).country} (ISO:{" "}
+            {(details as Hotel).countryisocode})
+          </p>
+          <p className="text-white">
+            Star Rating: {(details as Hotel).star_rating} stars
+          </p>
+        </>
       )}
       {type === "countries" && details && (
-        <div>
-          <h1>{(details as Country).country}</h1>
-        </div>
+        <>
+          <h1 className="text-white mb-4">{(details as Country).country}</h1>
+          <p className="text-white">
+            ISO Code: {(details as Country).countryisocode}
+          </p>
+        </>
       )}
       {type === "cities" && details && (
-        <div>
-          <h1>{(details as City).name}</h1>
-        </div>
+        <>
+          <h1 className="text-white mb-4">{(details as City).name}</h1>
+        </>
       )}
+      <Link to="/" className="not-found-cta text-decoration-none">
+        Return to search
+      </Link>
     </div>
   );
 };
