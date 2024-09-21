@@ -9,8 +9,11 @@ const SearchPage = () => {
   const [searchValue, setSearchValue] = useState("");
   const [showClearBtn, setShowClearBtn] = useState(false);
 
-  // Use the debounce hook
-  const debouncedSearchValue = useDebounce(searchValue, 300);
+  // Define debounce delay as a prop or constant, allowing flexibility for future adjustment.
+  const debounceDelay = 200;
+
+  // Pass the configurable debounce delay to the useDebounce hook
+  const debouncedSearchValue = useDebounce(searchValue, debounceDelay);
 
   const { hotels, countries, cities, isLoading, isError } =
     useSearchData(debouncedSearchValue);
