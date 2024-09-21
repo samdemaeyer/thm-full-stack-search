@@ -7,11 +7,13 @@ export const fetchAndFilterHotels = async (value: string) => {
     if (!hotelsData.ok) throw new Error("Failed to fetch hotels");
     const hotels = (await hotelsData.json()) as Hotel[];
     return hotels.filter(
-      ({ chain_name, hotel_name, city, country }) =>
+      ({ chain_name, hotel_name, city, country, state, zipcode }) =>
         chain_name.toLowerCase().includes(value.toLowerCase()) ||
         hotel_name.toLowerCase().includes(value.toLowerCase()) ||
         city.toLowerCase().includes(value.toLowerCase()) ||
-        country.toLowerCase().includes(value.toLowerCase())
+        country.toLowerCase().includes(value.toLowerCase()) ||
+        state.toLowerCase().includes(value.toLowerCase()) ||
+        zipcode.includes(value)
     );
   } catch (error) {
     console.error(error);
