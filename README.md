@@ -223,9 +223,9 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 
 - **Tests**: Implemented unit and integration tests.
 
-To run unit tests in client: `npm run --workspace client test:unit` 
-To run integration tests in client `npm run --workspace client test:integration` 
-To run all tests `npm test` 
+To run unit tests in client: `npm run --workspace client test:unit`  
+To run integration tests in client: `npm run --workspace client test:integration`  
+To run all tests: `npm test`  
 
 - **React.memo Optimization**: Applied `React.memo` to key components (`SearchBar` and `ResultsList`) to prevent unnecessary re-renders and improve performance.
 - **Centralized Debounce Logic**: Introduced a new hook `useSearchLogic` to centralize state management, debouncing, and data fetching, simplifying the `SearchPage` component.
