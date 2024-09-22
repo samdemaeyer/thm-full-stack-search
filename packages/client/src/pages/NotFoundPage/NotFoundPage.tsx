@@ -8,6 +8,7 @@ const NotFoundPage: React.FC = () => {
       <h1 className="display-1 text-white font-weight-bold mb-2">
         404 - Page Not Found
       </h1>
+
       <div className="text-white">
         Sorry, the page you are looking for does not exist.
       </div>
@@ -22,4 +23,4 @@ const NotFoundPage: React.FC = () => {
   );
 };
 
-export default NotFoundPage;
+export default NotFoundPage; // Export the NotFoundPage component

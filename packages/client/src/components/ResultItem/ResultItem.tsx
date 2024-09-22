@@ -4,42 +4,46 @@ import { getIconClass } from "../../utils/iconHelper";
 import { Link } from "react-router-dom";
 import "./ResultItem.css";
 
+// Defining a union type for the item prop that can be a Hotel, Country, or City
 type Item = Hotel | Country | City;
 
+// Defining the props for the ResultItem component
 interface ResultItemProps {
-  item: Item;
-  type: string;
+  item: Item; // The item to display (Hotel, Country, or City)
+  type: string; // The type of the item to determine rendering
 }
 
+// ResultItem component
 const ResultItem: React.FC<ResultItemProps> = React.memo(({ item, type }) => {
   return (
     <li key={item._id}>
       <Link
-        to={`/${type}/${item._id}`}
-        className="dropdown-item"
-        tabIndex={0}
+        to={`/${type}/${item._id}`} // Dynamic routing based on type and item ID
+        className="dropdown-item" // CSS class for styling
+        tabIndex={0} // Makes the link focusable
         aria-label={`View details for ${
           type === "hotels"
-            ? (item as Hotel).hotel_name
+            ? (item as Hotel).hotel_name // If item is a hotel, use hotel_name
             : type === "countries"
-            ? (item as Country).country
-            : (item as City).name
+            ? (item as Country).country // If item is a country, use country name
+            : (item as City).name // If item is a city, use city name
         }`}
       >
         <i
-          className={`fa ${getIconClass(type)} mr-2`}
-          aria-hidden="true"
-          data-testid="icon-element"
+          className={`fa ${getIconClass(type)} mr-2`} // Icon class based on item type
+          aria-hidden="true" // Hides the icon from screen readers
+          data-testid="icon-element" // Test ID for easier querying in tests
         ></i>
         {type === "hotels"
-          ? (item as Hotel).hotel_name
+          ? (item as Hotel).hotel_name // Render hotel name
           : type === "countries"
-          ? (item as Country).country
-          : (item as City).name}
+          ? (item as Country).country // Render country name
+          : (item as City).name}{" "}
+        // Render city name
       </Link>
       <hr className="divider" />
     </li>
   );
 });
 
-export default ResultItem;
+export default ResultItem; // Exporting the component for use in other files

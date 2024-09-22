@@ -1,16 +1,17 @@
-import { describe, it, expect, vi, afterEach } from "vitest";
-import { fetchAndFilterHotels } from "../apiService";
-import { API_URL } from "../../utils/apiConstants";
+import { describe, it, expect, vi, afterEach } from "vitest"; // Import testing functions from Vitest
+import { fetchAndFilterHotels } from "../apiService"; // Import the function to be tested
+import { API_URL } from "../../utils/apiConstants"; // Import the API URL for fetching data
 
-// Mock the global fetch function
+// Mock the global fetch function to simulate network requests
 global.fetch = vi.fn();
 
 describe("fetchAndFilterHotels", () => {
   afterEach(() => {
-    vi.clearAllMocks();
+    vi.clearAllMocks(); // Clear all mocks after each test to avoid interference
   });
 
   it("should fetch and filter hotels successfully", async () => {
+    // Mock response data representing hotel records
     const mockResponse = [
       {
         _id: "1",
@@ -32,15 +33,16 @@ describe("fetchAndFilterHotels", () => {
       },
     ];
 
+    // Simulate a successful fetch response
     (global.fetch as vi.Mock).mockResolvedValueOnce({
       ok: true,
-      json: async () => mockResponse,
+      json: async () => mockResponse, // Return mock response as JSON
     });
 
-    const lowerCaseValue = "best";
-    const filteredHotels = await fetchAndFilterHotels(lowerCaseValue);
-    expect(filteredHotels).toEqual([mockResponse[0]]); // Should filter out only hotels that match 'best'
-    expect(global.fetch).toHaveBeenCalledWith(`${API_URL}/hotels`);
+    const lowerCaseValue = "best"; // Search term for filtering
+    const filteredHotels = await fetchAndFilterHotels(lowerCaseValue); // Call the function to test
+    expect(filteredHotels).toEqual([mockResponse[0]]); // Assert that only matching hotels are returned
+    expect(global.fetch).toHaveBeenCalledWith(`${API_URL}/hotels`); // Ensure the fetch function was called with the correct URL
   });
 
   it("should return an empty array if no hotels match the search term", async () => {
@@ -65,29 +67,32 @@ describe("fetchAndFilterHotels", () => {
       },
     ];
 
+    // Simulate a successful fetch response
     (global.fetch as vi.Mock).mockResolvedValueOnce({
       ok: true,
-      json: async () => mockResponse,
+      json: async () => mockResponse, // Return mock response as JSON
     });
 
-    const lowerCaseValue = "nonexistent";
-    const filteredHotels = await fetchAndFilterHotels(lowerCaseValue);
-    expect(filteredHotels).toEqual([]); // No hotels match the search term
+    const lowerCaseValue = "nonexistent"; // Search term with no matches
+    const filteredHotels = await fetchAndFilterHotels(lowerCaseValue); // Call the function to test
+    expect(filteredHotels).toEqual([]); // Assert that no hotels are returned
   });
 
   it("should return an empty array if the fetch fails", async () => {
+    // Simulate a failed fetch response
     (global.fetch as vi.Mock).mockResolvedValueOnce({
-      ok: false,
+      ok: false, // Indicate failure
     });
 
-    const filteredHotels = await fetchAndFilterHotels("best");
-    expect(filteredHotels).toEqual([]); // Should return an empty array on error
+    const filteredHotels = await fetchAndFilterHotels("best"); // Call the function to test
+    expect(filteredHotels).toEqual([]); // Assert that an empty array is returned on error
   });
 
   it("should return an empty array on network error", async () => {
+    // Simulate a network error
     (global.fetch as vi.Mock).mockRejectedValueOnce(new Error("Network error"));
 
-    const filteredHotels = await fetchAndFilterHotels("best");
-    expect(filteredHotels).toEqual([]); // Should return an empty array on error
+    const filteredHotels = await fetchAndFilterHotels("best"); // Call the function to test
+    expect(filteredHotels).toEqual([]); // Assert that an empty array is returned on error
   });
 });
