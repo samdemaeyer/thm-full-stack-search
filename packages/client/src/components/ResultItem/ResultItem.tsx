@@ -26,7 +26,11 @@ const ResultItem: React.FC<ResultItemProps> = React.memo(({ item, type }) => {
             : (item as City).name
         }`}
       >
-        <i className={`fa ${getIconClass(type)} mr-2`} aria-hidden="true"></i>
+        <i
+          className={`fa ${getIconClass(type)} mr-2`}
+          aria-hidden="true"
+          data-testid="icon-element"
+        ></i>
         {type === "hotels"
           ? (item as Hotel).hotel_name
           : type === "countries"
