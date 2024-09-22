@@ -1,4 +1,4 @@
-import SEO from "../../components/SEO/SEO"; // Import SEO component for metadata management
+import SEO from "../../components/MetaTags/MetaTags"; // Import SEO component for metadata management
 import SearchBar from "../../components/SearchBar/SearchBar"; // Import SearchBar for user input
 import ResultsList from "../../components/ResultsList/ResultsList"; // Import ResultsList to display search results
 import { useSearchLogic } from "../../hooks/useSearchLogic"; // Import custom hook for managing search logic

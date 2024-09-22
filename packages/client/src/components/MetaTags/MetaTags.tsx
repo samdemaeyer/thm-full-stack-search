@@ -9,7 +9,7 @@ interface SEOProps {
   type?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({
+const MetaTags: React.FC<SEOProps> = ({
   title,
   description,
   url,
@@ -41,4 +41,4 @@ const SEO: React.FC<SEOProps> = ({
   );
 };
 
-export default SEO;
+export default MetaTags;
