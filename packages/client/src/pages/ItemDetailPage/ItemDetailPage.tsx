@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { fetchDetails } from "../../utils/fetchDetails"; // Function to fetch item details
-import { Hotel, Country, City } from "../../types/models"; // Importing models for type safety
-import SEO from "../../components/MetaTags/MetaTags"; // SEO component for dynamic metadata
+import { fetchDetails } from "../../utils/fetchDetails";
+import { Hotel, Country, City } from "../../types/models";
+import MetaTags from "../../components/MetaTags/MetaTags";
 import "./ItemDetailPage.css";
 
 const ItemDetailPage: React.FC = () => {
   // Using URL parameters to determine the type and ID of the item
   const { type, id } = useParams<{ type: string; id: string }>();
-
   // State to hold the details of the item
   const [details, setDetails] = useState<Hotel | Country | City | null>(null);
   // State to manage loading status
@@ -64,7 +63,7 @@ const ItemDetailPage: React.FC = () => {
   // Only render the detail if details are available
   if (!details) return null;
 
-  // Dynamic title and description for SEO
+  // Dynamic title and description for Meta Tags
   let title = "";
   let description = "";
   if (type === "hotels" && details) {
@@ -83,8 +82,7 @@ const ItemDetailPage: React.FC = () => {
       className="container d-flex flex-column justify-content-center align-items-center height"
       role="main"
     >
-      {/* Set dynamic SEO metadata */}
-      <SEO
+      <MetaTags
         title={title}
         description={description}
         url={window.location.href}

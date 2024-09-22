@@ -1,7 +1,7 @@
-import SEO from "../../components/MetaTags/MetaTags"; // Import SEO component for metadata management
-import SearchBar from "../../components/SearchBar/SearchBar"; // Import SearchBar for user input
-import ResultsList from "../../components/ResultsList/ResultsList"; // Import ResultsList to display search results
-import { useSearchLogic } from "../../hooks/useSearchLogic"; // Import custom hook for managing search logic
+import MetaTags from "../../components/MetaTags/MetaTags";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import ResultsList from "../../components/ResultsList/ResultsList";
+import { useSearchLogic } from "../../hooks/useSearchLogic";
 
 const SearchPage = () => {
   const debounceDelay = 50; // Set debounce delay for search input
@@ -20,8 +20,7 @@ const SearchPage = () => {
 
   return (
     <div className="App">
-      {/* SEO component to manage the page's metadata */}
-      <SEO
+      <MetaTags
         title="Find Your Next Adventure - Search"
         description="Search for hotels, countries, and cities to plan your next adventure."
         url={window.location.href} // Current page URL for SEO
