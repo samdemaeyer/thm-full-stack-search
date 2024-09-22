@@ -212,9 +212,12 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
  - **Add comments in the code for clarity.**  
   [PR #34]( https://github.com/Karaterzidi/thm-full-stack-search/pull/40)
 
-
  - **Organize the folders for unit tests.**  
   [PR #41]( https://github.com/Karaterzidi/thm-full-stack-search/pull/41)
+
+ - **Add integration tests.**  
+  [PR #43]( https://github.com/Karaterzidi/thm-full-stack-search/pull/43)
+
 
 ## General Improvements / Observations
 
