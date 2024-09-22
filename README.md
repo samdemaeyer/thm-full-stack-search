@@ -200,6 +200,9 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
  - **Fix debounce search logic hook.**  
   [PR #34]( https://github.com/Karaterzidi/thm-full-stack-search/pull/34)
 
+ - **Added uni tests.**  
+  [PR #35]( https://github.com/Karaterzidi/thm-full-stack-search/pull/35)
+
 ## General Improvements
 
 - **React.memo Optimization**: Applied `React.memo` to key components (`SearchBar` and `ResultsList`) to prevent unnecessary re-renders and improve performance.
