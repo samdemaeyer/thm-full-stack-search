@@ -251,7 +251,7 @@ To run all tests: `npm test`
 - **Externalized API Configuration**: Suggested moving API configurations, such as `API_URL`, to a `.env` file for better environment-specific management and security.
 - **E2E Testing**: I would love to had implemented also e2e testing to ensure the entire application flow works as expected. While I don't have expertise in this area yet, I believe it would be beneficial for improving the quality and reliability of the project.
 - **Search Filters**: A possible future enhancement could be to add filters for the search functionality, allowing users to filter results by category (e.g., hotels, countries, or cities). This would provide a more refined search experience and allow users to quickly find what they are looking for.
-- **List all the available hotels in the same chain**: Another enhancement could be list all the available hotels in the same chain, if there are any.
+- **List all the available hotels in the same chain**: Another enhancement could be to list all the available hotels in the same chain, if there are any for each case.
 
 ## Installation
 
