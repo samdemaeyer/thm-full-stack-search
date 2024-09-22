@@ -210,6 +210,7 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 
 ## General Improvements
 
+- **Unit Tests**: Implemented unit tests for key components and utility functions to ensure reliability and maintainability of the codebase.
 - **React.memo Optimization**: Applied `React.memo` to key components (`SearchBar` and `ResultsList`) to prevent unnecessary re-renders and improve performance.
 - **Centralized Debounce Logic**: Introduced a new hook `useSearchLogic` to centralize state management, debouncing, and data fetching, simplifying the `SearchPage` component.
 - **React Query Integration**: Improved data fetching and state management by introducing `React Query` for caching, synchronization, and error handling.
