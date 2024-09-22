@@ -203,7 +203,7 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
  - **Added unit tests.**  
   [PR #35]( https://github.com/Karaterzidi/thm-full-stack-search/pull/35)
   [PR #36]( https://github.com/Karaterzidi/thm-full-stack-search/pull/36)
-
+  [PR #37]( https://github.com/Karaterzidi/thm-full-stack-search/pull/37)
 
 
 ## General Improvements
