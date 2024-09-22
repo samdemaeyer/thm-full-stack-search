@@ -35,8 +35,6 @@ const SearchBarComponent: React.FC<SearchBarProps> = ({
       />
       {showClearBtn && ( // Conditional rendering of the clear button
         <button onClick={onClear} aria-label="Clear search">
-          {" "}
-          // Button to clear the search
           <i
             className="fa fa-close"
             aria-hidden="true" // Hides the icon from assistive technologies
