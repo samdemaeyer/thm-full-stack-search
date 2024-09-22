@@ -216,9 +216,14 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
  - **Organize the folders for unit tests.**  
   [PR #41]( https://github.com/Karaterzidi/thm-full-stack-search/pull/41)
 
-## General Improvements
+## General Improvements / Observations
 
-- **Unit Tests**: Implemented unit tests for key components and utility functions to ensure reliability and maintainability of the codebase.
+- **Tests**: Implemented unit and integration tests.
+
+To run unit tests in client: `npm run --workspace client test:unit` 
+To run integration tests in client `npm run --workspace client test:integration` 
+To run all tests `npm test` 
+
 - **React.memo Optimization**: Applied `React.memo` to key components (`SearchBar` and `ResultsList`) to prevent unnecessary re-renders and improve performance.
 - **Centralized Debounce Logic**: Introduced a new hook `useSearchLogic` to centralize state management, debouncing, and data fetching, simplifying the `SearchPage` component.
 - **React Query Integration**: Improved data fetching and state management by introducing `React Query` for caching, synchronization, and error handling.
