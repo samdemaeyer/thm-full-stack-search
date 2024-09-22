@@ -19,14 +19,14 @@ const ResultItem: React.FC<ResultItemProps> = React.memo(({ item, type }) => {
     <li key={item._id}>
       <Link
         to={`/${type}/${item._id}`} // Dynamic routing based on type and item ID
-        className="dropdown-item" // CSS class for styling
+        className="dropdown-item"
         tabIndex={0} // Makes the link focusable
         aria-label={`View details for ${
           type === "hotels"
-            ? (item as Hotel).hotel_name // If item is a hotel, use hotel_name
+            ? (item as Hotel).hotel_name
             : type === "countries"
-            ? (item as Country).country // If item is a country, use country name
-            : (item as City).name // If item is a city, use city name
+            ? (item as Country).country
+            : (item as City).name
         }`}
       >
         <i
@@ -35,11 +35,10 @@ const ResultItem: React.FC<ResultItemProps> = React.memo(({ item, type }) => {
           data-testid="icon-element" // Test ID for easier querying in tests
         ></i>
         {type === "hotels"
-          ? (item as Hotel).hotel_name // Render hotel name
+          ? (item as Hotel).hotel_name
           : type === "countries"
-          ? (item as Country).country // Render country name
-          : (item as City).name}{" "}
-        // Render city name
+          ? (item as Country).country
+          : (item as City).name}
       </Link>
       <hr className="divider" />
     </li>

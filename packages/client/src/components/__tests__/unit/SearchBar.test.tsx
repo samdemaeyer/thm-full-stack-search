@@ -1,7 +1,7 @@
 // Import necessary testing utilities and the SearchBar component
 import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import SearchBar from "../SearchBar/SearchBar"; // The component being tested
+import SearchBar from "../../SearchBar/SearchBar"; // The component being tested
 
 // Describe the test suite for the SearchBar component
 describe("SearchBar Component", () => {

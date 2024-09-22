@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest"; // Import testing functions from Vitest
-import { fetchAndFilterHotels } from "../apiService"; // Import the function to be tested
-import { API_URL } from "../../utils/apiConstants"; // Import the API URL for fetching data
+import { fetchAndFilterHotels } from "../../apiService"; // Import the function to be tested
+import { API_URL } from "../../../utils/apiConstants"; // Import the API URL for fetching data
 
 // Mock the global fetch function to simulate network requests
 global.fetch = vi.fn();

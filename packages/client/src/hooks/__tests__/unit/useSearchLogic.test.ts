@@ -1,12 +1,12 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"; // Importing testing utilities
 import { renderHook, act } from "@testing-library/react-hooks"; // Function to render custom hooks for testing
-import { useSearchLogic } from "../useSearchLogic"; // Importing the custom hook to test
-import useDebounce from "../useDebounce"; // Mock this hook
-import useSearchData from "../useSearchData"; // Mock this hook
+import { useSearchLogic } from "../../useSearchLogic"; // Importing the custom hook to test
+import useDebounce from "../../useDebounce"; // Mock this hook
+import useSearchData from "../../useSearchData"; // Mock this hook
 
 // Mocking external hooks
-vi.mock("../useDebounce"); // Mock the useDebounce hook
-vi.mock("../useSearchData"); // Mock the useSearchData hook
+vi.mock("../../useDebounce"); // Mock the useDebounce hook
+vi.mock("../../useSearchData"); // Mock the useSearchData hook
 
 describe("useSearchLogic", () => {
   beforeEach(() => {

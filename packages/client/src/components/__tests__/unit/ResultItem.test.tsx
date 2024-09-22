@@ -2,11 +2,11 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom"; // For testing components that use routing
-import ResultItem from "../ResultItem/ResultItem"; // The component being tested
-import { Hotel, Country, City } from "../../types/models"; // Type definitions for props
+import ResultItem from "../../ResultItem/ResultItem"; // The component being tested
+import { Hotel, Country, City } from "../../../types/models"; // Type definitions for props
 
 // Mock the iconHelper module to control the output of the getIconClass function
-vi.mock("../../utils/iconHelper", () => ({
+vi.mock("../../../utils/iconHelper", () => ({
   getIconClass: vi.fn((type) => `fa-${type}`), // Return a class name based on type
 }));
 
