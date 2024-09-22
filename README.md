@@ -206,6 +206,8 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
   [PR #37]( https://github.com/Karaterzidi/thm-full-stack-search/pull/37)
   [PR #38]( https://github.com/Karaterzidi/thm-full-stack-search/pull/38)
 
+ - **Remove unused CSS file.**  
+  [PR #39]( https://github.com/Karaterzidi/thm-full-stack-search/pull/39)
 
 
 ## General Improvements
