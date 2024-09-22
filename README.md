@@ -209,6 +209,8 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
  - **Remove unused CSS file.**  
   [PR #39]( https://github.com/Karaterzidi/thm-full-stack-search/pull/39)
 
+ - **Add comments in the code for clarity.**  
+  [PR #34]( https://github.com/Karaterzidi/thm-full-stack-search/pull/40)
 
 ## General Improvements
 
