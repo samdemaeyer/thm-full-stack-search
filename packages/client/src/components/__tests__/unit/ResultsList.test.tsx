@@ -2,7 +2,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom"; // To handle routing in tests
-import ResultsList from "../ResultsList/ResultsList"; // The component being tested
+import ResultsList from "../../ResultsList/ResultsList"; // The component being tested
 
 // Describe the test suite for the ResultsList component
 describe("ResultsList Component", () => {

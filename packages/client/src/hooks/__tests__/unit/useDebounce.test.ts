@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest"; // Importing testing utilities from Vitest
 import { renderHook, act } from "@testing-library/react-hooks"; // Importing functions to test custom hooks
-import useDebounce from "../useDebounce"; // Importing the useDebounce hook to be tested
+import useDebounce from "../../useDebounce"; // Importing the useDebounce hook to be tested
 
 describe("useDebounce", () => {
   beforeEach(() => {

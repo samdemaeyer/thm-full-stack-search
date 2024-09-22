@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest"; // Import testing utilities
-import { fetchDetails } from "../fetchDetails"; // Import the function to test
-import { API_URL } from "../apiConstants"; // Import the API URL constant
+import { fetchDetails } from "../../fetchDetails"; // Import the function to test
+import { API_URL } from "../../apiConstants"; // Import the API URL constant
 
 // Mock the global fetch function to simulate API calls
 global.fetch = vi.fn();

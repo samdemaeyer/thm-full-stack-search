@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"; // Import testing utilities
-import { getIconClass } from "../iconHelper"; // Import the function to test
+import { getIconClass } from "../../iconHelper"; // Import the function to test
 
 describe("getIconClass", () => {
   // Test case for 'hotels'
