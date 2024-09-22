@@ -250,7 +250,7 @@ To run all tests `npm test`
 - **Search Filters**: A possible future enhancement could be to add filters for the search functionality, allowing users to filter results by category (e.g., hotels, countries, or cities). This would provide a more refined search experience and allow users to quickly find what they are looking for.
 
 
-I documented the steps I took to evaluate my mindset and improve my expertise in React, allowing me to reflect on my process and identify any potential areas for improvement. I also I have written comments throughout the code to explain the rationale behind my decisions.
+I documented the steps I took to evaluate my mindset and improve my expertise in React, allowing me to reflect on my process and identify any potential areas for improvement. I also I have written comments throughout the code to explain the rationale behind my decisions and to provide clarity.
 
 
 
