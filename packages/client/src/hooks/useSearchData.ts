@@ -5,19 +5,23 @@ import {
   fetchAndFilterCities,
 } from "../services/apiService";
 
+// Custom hook for searching and fetching data for hotels, countries, and cities
 const useSearchData = (searchValue: string) => {
+  // Convert search value to lowercase for consistent comparison
   const lowerCaseValue = searchValue.toLowerCase();
 
+  // Query for fetching hotels data
   const {
-    data: hotels = [],
-    isLoading: loadingHotels,
-    isError: errorHotels,
+    data: hotels = [], // Default to empty array if no data
+    isLoading: loadingHotels, // Loading state for hotels
+    isError: errorHotels, // Error state for hotels
   } = useQuery({
-    queryKey: ["hotels", lowerCaseValue],
-    queryFn: () => fetchAndFilterHotels(lowerCaseValue),
-    enabled: !!searchValue,
+    queryKey: ["hotels", lowerCaseValue], // Unique query key
+    queryFn: () => fetchAndFilterHotels(lowerCaseValue), // Fetch function
+    enabled: !!searchValue, // Only run query if searchValue is truthy
   });
 
+  // Query for fetching countries data
   const {
     data: countries = [],
     isLoading: loadingCountries,
@@ -28,6 +32,7 @@ const useSearchData = (searchValue: string) => {
     enabled: !!searchValue,
   });
 
+  // Query for fetching cities data
   const {
     data: cities = [],
     isLoading: loadingCities,
@@ -38,10 +43,11 @@ const useSearchData = (searchValue: string) => {
     enabled: !!searchValue,
   });
 
-  // Combine loading and error states
+  // Combine loading and error states across all queries
   const isLoading = loadingHotels || loadingCountries || loadingCities;
   const isError = errorHotels || errorCountries || errorCities;
 
+  // Return the results and states
   return {
     hotels,
     countries,
@@ -51,4 +57,4 @@ const useSearchData = (searchValue: string) => {
   };
 };
 
-export default useSearchData;
+export default useSearchData; // Export the custom hook

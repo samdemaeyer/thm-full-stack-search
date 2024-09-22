@@ -1,27 +1,30 @@
-import { useState, useEffect, ChangeEvent } from "react";
-import useDebounce from "./useDebounce"; // Assume you have a debounce hook
-import useSearchData from "./useSearchData"; // The hook that fetches data
+import { useState, ChangeEvent } from "react";
+import useDebounce from "./useDebounce"; // Importing the debounce hook for managing delayed updates
+import useSearchData from "./useSearchData"; // Importing the hook that fetches search data
 
+// Custom hook for managing search logic, including debouncing and fetching data
 export const useSearchLogic = (initialValue: string, debounceDelay: number) => {
+  // State to hold the current search value
   const [searchValue, setSearchValue] = useState(initialValue);
 
-  // Debounced search value
+  // Get the debounced search value, which updates after the specified delay
   const debouncedSearchValue = useDebounce(searchValue, debounceDelay);
 
-  // Fetch data based on debounced value
+  // Fetch data for hotels, countries, and cities based on the debounced value
   const { hotels, countries, cities, isLoading, isError } =
     useSearchData(debouncedSearchValue);
 
-  // Handle changes to the input field
+  // Function to handle input changes in the search field
   const fetchData = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value); // Only update the search value here
+    setSearchValue(event.target.value); // Update the search value with user input
   };
 
-  // Clear the search input
+  // Function to clear the search input
   const clearSearch = () => {
-    setSearchValue("");
+    setSearchValue(""); // Reset the search value to an empty string
   };
 
+  // Return the search value, handler functions, and fetched data
   return {
     searchValue,
     fetchData,

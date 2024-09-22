@@ -1,35 +1,35 @@
-import { renderHook } from "@testing-library/react-hooks";
-import useSearchData from "../useSearchData";
-import { useQuery } from "@tanstack/react-query";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest"; // Importing testing utilities
+import { renderHook } from "@testing-library/react-hooks"; // Function to render custom hooks for testing
+import { useQuery } from "@tanstack/react-query"; // Importing the useQuery hook for mocking
+import useSearchData from "../useSearchData"; // Importing the custom hook to test
 
 // Mock the `useQuery` function from react-query
 vi.mock("@tanstack/react-query", () => ({
-  useQuery: vi.fn(),
+  useQuery: vi.fn(), // Mock implementation of useQuery
 }));
 
 describe("useSearchData", () => {
-  const mockUseQuery = useQuery as vi.Mock;
+  const mockUseQuery = useQuery as vi.Mock; // Casting useQuery to a mock for type safety
 
   beforeEach(() => {
-    // Clear mocks before each test
+    // Clear mocks before each test to avoid test interference
     vi.clearAllMocks();
   });
 
   it("should return hotels, countries, and cities when data is fetched successfully", () => {
     // Mock successful fetch for hotels, countries, and cities
     mockUseQuery.mockReturnValueOnce({
-      data: ["Hotel 1"],
+      data: ["Hotel 1"], // Mock hotel data
+      isLoading: false, // Not loading
+      isError: false, // No error
+    });
+    mockUseQuery.mockReturnValueOnce({
+      data: ["Country 1"], // Mock country data
       isLoading: false,
       isError: false,
     });
     mockUseQuery.mockReturnValueOnce({
-      data: ["Country 1"],
-      isLoading: false,
-      isError: false,
-    });
-    mockUseQuery.mockReturnValueOnce({
-      data: ["City 1"],
+      data: ["City 1"], // Mock city data
       isLoading: false,
       isError: false,
     });
@@ -38,18 +38,18 @@ describe("useSearchData", () => {
     const { result } = renderHook(() => useSearchData("search term"));
 
     // Assert results
-    expect(result.current.hotels).toEqual(["Hotel 1"]);
-    expect(result.current.countries).toEqual(["Country 1"]);
-    expect(result.current.cities).toEqual(["City 1"]);
-    expect(result.current.isLoading).toBe(false);
-    expect(result.current.isError).toBe(false);
+    expect(result.current.hotels).toEqual(["Hotel 1"]); // Check hotel data
+    expect(result.current.countries).toEqual(["Country 1"]); // Check country data
+    expect(result.current.cities).toEqual(["City 1"]); // Check city data
+    expect(result.current.isLoading).toBe(false); // Check loading state
+    expect(result.current.isError).toBe(false); // Check error state
   });
 
   it("should return loading states when data is being fetched", () => {
     // Mock loading state for hotels, countries, and cities
     mockUseQuery.mockReturnValueOnce({
-      data: [],
-      isLoading: true,
+      data: [], // No data yet
+      isLoading: true, // Loading state
       isError: false,
     });
     mockUseQuery.mockReturnValueOnce({
@@ -67,16 +67,16 @@ describe("useSearchData", () => {
     const { result } = renderHook(() => useSearchData("search term"));
 
     // Assert loading states
-    expect(result.current.isLoading).toBe(true);
-    expect(result.current.isError).toBe(false);
+    expect(result.current.isLoading).toBe(true); // Check loading state
+    expect(result.current.isError).toBe(false); // Check error state
   });
 
   it("should return error state when fetching fails", () => {
     // Mock error state for hotels, countries, and cities
     mockUseQuery.mockReturnValueOnce({
       data: [],
-      isLoading: false,
-      isError: true,
+      isLoading: false, // Not loading
+      isError: true, // Error occurred
     });
     mockUseQuery.mockReturnValueOnce({
       data: [],
@@ -93,16 +93,16 @@ describe("useSearchData", () => {
     const { result } = renderHook(() => useSearchData("search term"));
 
     // Assert error state
-    expect(result.current.isError).toBe(true);
-    expect(result.current.isLoading).toBe(false);
+    expect(result.current.isError).toBe(true); // Check error state
+    expect(result.current.isLoading).toBe(false); // Check loading state
   });
 
   it("should not fetch data if searchValue is empty", () => {
     // Mock empty fetch (since searchValue is falsy)
     mockUseQuery.mockReturnValueOnce({
       data: [],
-      isLoading: false,
-      isError: false,
+      isLoading: false, // Not loading
+      isError: false, // No error
     });
     mockUseQuery.mockReturnValueOnce({
       data: [],
@@ -119,10 +119,10 @@ describe("useSearchData", () => {
     const { result } = renderHook(() => useSearchData(""));
 
     // Assert that no data is fetched and no loading or error state is set
-    expect(result.current.hotels).toEqual([]);
-    expect(result.current.countries).toEqual([]);
-    expect(result.current.cities).toEqual([]);
-    expect(result.current.isLoading).toBe(false);
-    expect(result.current.isError).toBe(false);
+    expect(result.current.hotels).toEqual([]); // Check hotels are empty
+    expect(result.current.countries).toEqual([]); // Check countries are empty
+    expect(result.current.cities).toEqual([]); // Check cities are empty
+    expect(result.current.isLoading).toBe(false); // Check loading state
+    expect(result.current.isError).toBe(false); // Check error state
   });
 });
