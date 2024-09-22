@@ -2,7 +2,6 @@ import SEO from "../../components/SEO/SEO";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ResultsList from "../../components/ResultsList/ResultsList";
 import { useSearchLogic } from "../../hooks/useSearchLogic";
-import "./SearchPage.css";
 
 const SearchPage = () => {
   const debounceDelay = 300;
