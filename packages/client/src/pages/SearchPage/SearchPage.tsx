@@ -4,7 +4,7 @@ import ResultsList from "../../components/ResultsList/ResultsList"; // Import Re
 import { useSearchLogic } from "../../hooks/useSearchLogic"; // Import custom hook for managing search logic
 
 const SearchPage = () => {
-  const debounceDelay = 300; // Set debounce delay for search input
+  const debounceDelay = 50; // Set debounce delay for search input
 
   // Use the custom hook to manage the search logic
   const {
