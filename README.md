@@ -218,6 +218,9 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
  - **Add integration tests.**  
   [PR #43]( https://github.com/Karaterzidi/thm-full-stack-search/pull/43)
 
+- **Fix dependency issue.**  
+  [PR #44]( https://github.com/Karaterzidi/thm-full-stack-search/pull/44)
+
 
 ## General Improvements / Observations
 
