@@ -56,11 +56,11 @@ const ResultsListComponent: React.FC<ResultsListProps> = ({
       aria-live="polite" // For accessibility: informs assistive technologies about updates
     >
       <h2>Hotels</h2>
-      {renderList(hotels, "hotels")} // Render the hotels list
+      {renderList(hotels, "hotels")}
       <h2>Countries</h2>
-      {renderList(countries, "countries")} // Render the countries list
+      {renderList(countries, "countries")}
       <h2>Cities</h2>
-      {renderList(cities, "cities")} // Render the cities list
+      {renderList(cities, "cities")}
     </div>
   );
 };
