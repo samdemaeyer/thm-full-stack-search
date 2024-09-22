@@ -212,6 +212,10 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
  - **Add comments in the code for clarity.**  
   [PR #34]( https://github.com/Karaterzidi/thm-full-stack-search/pull/40)
 
+
+ - **Organize the folders for unit tests.**  
+  [PR #41]( https://github.com/Karaterzidi/thm-full-stack-search/pull/41)
+
 ## General Improvements
 
 - **Unit Tests**: Implemented unit tests for key components and utility functions to ensure reliability and maintainability of the codebase.
