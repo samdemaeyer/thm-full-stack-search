@@ -16,7 +16,11 @@ const SearchBarComponent: React.FC<SearchBarProps> = ({
 }) => {
   return (
     <div className="form">
-      <i className="fa fa-search" aria-hidden="true"></i>
+      <i
+        className="fa fa-search"
+        aria-hidden="true"
+        data-testid="search-icon"
+      ></i>
       <input
         type="text"
         className="form-control form-input"
@@ -27,7 +31,11 @@ const SearchBarComponent: React.FC<SearchBarProps> = ({
       />
       {showClearBtn && (
         <button onClick={onClear} aria-label="Clear search">
-          <i className="fa fa-close" aria-hidden="true"></i>
+          <i
+            className="fa fa-close"
+            aria-hidden="true"
+            data-testid="clear-icon"
+          ></i>
         </button>
       )}
     </div>
