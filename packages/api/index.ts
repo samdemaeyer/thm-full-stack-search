@@ -20,14 +20,18 @@ app.use(express.json());
 
 app.get("/hotels", async (req, res) => {
   const mongoClient = new MongoClient(DATABASE_URL);
-  console.log("Connecting to MongoDB...");
+  console.log("Connecting to MongoDB for hotels...");
 
   try {
     await mongoClient.connect();
-    console.log("Successfully connected to MongoDB!");
+    console.log("Successfully connected to MongoDB for hotels!");
     const db = mongoClient.db();
     const collection = db.collection("hotels");
-    res.send(await collection.find().toArray());
+    const hotels = await collection.find().toArray();
+    res.send(hotels);
+  } catch (error) {
+    console.error("Error connecting to MongoDB for hotels:", error);
+    res.status(500).send("Internal Server Error");
   } finally {
     await mongoClient.close();
   }
@@ -36,14 +40,18 @@ app.get("/hotels", async (req, res) => {
 // New endpoint for countries
 app.get("/countries", async (req, res) => {
   const mongoClient = new MongoClient(DATABASE_URL);
-  console.log("Connecting to MongoDB...");
+  console.log("Connecting to MongoDB for countries...");
 
   try {
     await mongoClient.connect();
-    console.log("Successfully connected to MongoDB!");
+    console.log("Successfully connected to MongoDB for countries!");
     const db = mongoClient.db();
     const collection = db.collection("countries");
-    res.send(await collection.find().toArray());
+    const countries = await collection.find().toArray();
+    res.send(countries);
+  } catch (error) {
+    console.error("Error connecting to MongoDB for countries:", error);
+    res.status(500).send("Internal Server Error");
   } finally {
     await mongoClient.close();
   }
@@ -52,14 +60,18 @@ app.get("/countries", async (req, res) => {
 // New endpoint for cities
 app.get("/cities", async (req, res) => {
   const mongoClient = new MongoClient(DATABASE_URL);
-  console.log("Connecting to MongoDB...");
+  console.log("Connecting to MongoDB for cities...");
 
   try {
     await mongoClient.connect();
-    console.log("Successfully connected to MongoDB!");
+    console.log("Successfully connected to MongoDB for cities!");
     const db = mongoClient.db();
     const collection = db.collection("cities");
-    res.send(await collection.find().toArray());
+    const cities = await collection.find().toArray();
+    res.send(cities);
+  } catch (error) {
+    console.error("Error connecting to MongoDB for cities:", error);
+    res.status(500).send("Internal Server Error");
   } finally {
     await mongoClient.close();
   }
@@ -77,6 +89,9 @@ app.get("/hotels/:id", async (req, res) => {
     const hotel = await collection.findOne({ _id: new ObjectId(id) });
     if (!hotel) return res.status(404).send("Hotel not found");
     res.send(hotel);
+  } catch (error) {
+    console.error(`Error fetching hotel with ID ${id}:`, error);
+    res.status(500).send("Internal Server Error");
   } finally {
     await mongoClient.close();
   }
@@ -94,6 +109,9 @@ app.get("/countries/:id", async (req, res) => {
     const country = await collection.findOne({ _id: new ObjectId(id) });
     if (!country) return res.status(404).send("Country not found");
     res.send(country);
+  } catch (error) {
+    console.error(`Error fetching country with ID ${id}:`, error);
+    res.status(500).send("Internal Server Error");
   } finally {
     await mongoClient.close();
   }
@@ -111,6 +129,9 @@ app.get("/cities/:id", async (req, res) => {
     const city = await collection.findOne({ _id: new ObjectId(id) });
     if (!city) return res.status(404).send("City not found");
     res.send(city);
+  } catch (error) {
+    console.error(`Error fetching city with ID ${id}:`, error);
+    res.status(500).send("Internal Server Error");
   } finally {
     await mongoClient.close();
   }
