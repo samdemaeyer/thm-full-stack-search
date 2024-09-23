@@ -23,9 +23,9 @@ const SearchPage = () => {
       <MetaTags
         title="Find Your Next Adventure - Search"
         description="Search for hotels, countries, and cities to plan your next adventure."
-        url={window.location.href} // Current page URL for SEO
-        image="URL_TO_YOUR_IMAGE" // Placeholder for image for SEO
-        type="website" // Specify type for SEO
+        url={window.location.href}
+        image="URL_TO_YOUR_IMAGE"
+        type="website"
       />
       <div className="container">
         <div className="row height d-flex justify-content-center align-items-center">

@@ -1,4 +1,5 @@
-import { getCodeSandboxHost } from "@codesandbox/utils"; // Import function to get the CodeSandbox host
+// Import function to get the CodeSandbox host
+import { getCodeSandboxHost } from "@codesandbox/utils";
 
 // Retrieve the host for CodeSandbox, using port 3001
 const codeSandboxHost = getCodeSandboxHost(3001);
