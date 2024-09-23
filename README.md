@@ -221,6 +221,8 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Fix dependency issue.**  
   [PR #44]( https://github.com/Karaterzidi/thm-full-stack-search/pull/44)
 
+- **Enhance MongoDB logging.**  
+  [PR #48]( https://github.com/Karaterzidi/thm-full-stack-search/pull/48)
 
 ## General Improvements / Observations
 
