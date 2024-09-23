@@ -1,4 +1,5 @@
-import { API_URL } from "./apiConstants"; // Import the API_URL constant for constructing the fetch URL
+// Import the API_URL constant for constructing the fetch URL
+import { API_URL } from "./apiConstants";
 
 // Function to fetch details based on type (hotels, countries, or cities) and ID
 export const fetchDetails = async (

@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { fetchDetails } from "../../utils/fetchDetails";
 import { Hotel, Country, City } from "../../types/models";
 import MetaTags from "../../components/MetaTags/MetaTags";
 import "./ItemDetailPage.css";
 
 const ItemDetailPage: React.FC = () => {
-  // Using URL parameters to determine the type and ID of the item
   const { type, id } = useParams<{ type: string; id: string }>();
-  // State to hold the details of the item
+  const navigate = useNavigate(); // Hook to navigate programmatically
   const [details, setDetails] = useState<Hotel | Country | City | null>(null);
-  // State to manage loading status
   const [loading, setLoading] = useState(true);
-  // State to manage any error messages
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const getData = async () => {
-      // Check if ID is provided, set error if not
       if (!id) {
         setError("Item ID is missing.");
         setLoading(false);
@@ -25,45 +21,41 @@ const ItemDetailPage: React.FC = () => {
       }
 
       try {
-        // Fetch item details based on type and ID
         const data = await fetchDetails(
           type as "hotels" | "countries" | "cities",
           id
         );
-        setDetails(data); // Set fetched data to state
+        setDetails(data);
       } catch (err) {
-        // Handle errors and set appropriate error messages
         if (err instanceof Error) {
-          setError(err.message);
+          // Check if the error indicates a non-existent ID
+          if (err.message === "Failed to fetch details") {
+            navigate("/404"); // Redirect to the NotFoundPage
+          } else {
+            setError(err.message);
+          }
         } else {
           setError("An unknown error occurred.");
         }
       } finally {
-        // Set loading to false once data is fetched or error is caught
         setLoading(false);
       }
     };
 
-    // Only call getData if type is defined
     if (type) {
       getData();
     }
-  }, [type, id]);
+  }, [type, id, navigate]);
 
-  // Loading state feedback
   if (loading) return <p>Loading...</p>;
-  // Error state feedback
   if (error)
     return (
       <p className="error" role="alert">
         {error}
       </p>
     );
-
-  // Only render the detail if details are available
   if (!details) return null;
 
-  // Dynamic title and description for Meta Tags
   let title = "";
   let description = "";
   if (type === "hotels" && details) {
@@ -86,10 +78,9 @@ const ItemDetailPage: React.FC = () => {
         title={title}
         description={description}
         url={window.location.href}
-        image="URL_TO_YOUR_IMAGE" // Placeholder for image URL
+        image="URL_TO_YOUR_IMAGE"
         type="website"
       />
-      {/* Render details based on the type */}
       {type === "hotels" && details && (
         <>
           <h1 className="text-white mb-4">{(details as Hotel).hotel_name}</h1>
