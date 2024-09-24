@@ -229,6 +229,8 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 
 ## General Improvements / Observations
 
+- **Enabled Dependabot Alerts**: Enabled dependabot alerts to be aware of security issues.
+
 - **Tests**: Implemented unit and integration tests.
 
 To run unit tests in client: `npm run --workspace client test:unit`  
