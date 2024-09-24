@@ -234,6 +234,10 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Remove react hooks library**  
   [PR #55]( https://github.com/Karaterzidi/thm-full-stack-search/pull/55)
 
+- **Upgraded micromatch to version 4.0.8**  
+  [PR #56]( https://github.com/Karaterzidi/thm-full-stack-search/pull/56)
+
+
 ## General Improvements / Observations
 
 - **Enabled Dependabot Alerts**: Enabled dependabot alerts to be aware of security issues.
