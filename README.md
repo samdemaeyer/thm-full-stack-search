@@ -237,6 +237,9 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Upgraded micromatch to version 4.0.8**  
   [PR #56]( https://github.com/Karaterzidi/thm-full-stack-search/pull/56)
 
+  - **Update dependencies**  
+  [PR #57]( https://github.com/Karaterzidi/thm-full-stack-search/pull/57)
+
 
 ## General Improvements / Observations
 
