@@ -93,7 +93,12 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 ## Setup
 1. Fork the repo
 2. Clone it
-3. Run `npm install`
+3. To install the project dependencies, run the following command:
+
+`npm install --legacy-peer-deps`
+
+The `--legacy-peer-deps` flag allows npm to bypass strict peer dependency checks, helping to resolve conflicts that can occur when libraries expect different versions of shared dependencies, as is the case with `@testing-library/react-hooks`. This is a temporary workaround that enables you to install all necessary packages while maintaining the project's functionality.
+
 4. Ensure it runs on `npm run start`
 
 ## Features Implemented
@@ -227,6 +232,11 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Created Github action.**  
   [PR #50]( https://github.com/Karaterzidi/thm-full-stack-search/pull/50)
 
+- **Resolved dependabot alerts**  
+  [PR #51]( https://github.com/Karaterzidi/thm-full-stack-search/pull/51)
+  & https://github.com/Karaterzidi/thm-full-stack-search/security/dependabot/6
+  
+
 ## General Improvements / Observations
 
 - **Enabled Dependabot Alerts**: Enabled dependabot alerts to be aware of security issues.
@@ -260,14 +270,6 @@ To run all tests: `npm test`
 - **E2E Testing**: I would love to had implemented also e2e testing to ensure the entire application flow works as expected. While I don't have expertise in this area yet, I wasn't able to do so, however, I believe it would be beneficial for improving the quality and reliability of the project.
 - **Search Filters**: A possible future enhancement could be to add filters for the search functionality, allowing users to filter results by category (e.g., hotels, countries, or cities). This would provide a more refined search experience and allow users to quickly find what they are looking for.
 - **List all the available hotels in the same chain**: Another enhancement could be to list all the available hotels in the same chain, if there are any for each case.
-
-## Installation
-
-To install the project dependencies, run the following command:
-
-`npm install --legacy-peer-deps`
-
-The `--legacy-peer-deps` flag allows npm to bypass strict peer dependency checks, helping to resolve conflicts that can occur when libraries expect different versions of shared dependencies, as is the case with `@testing-library/react-hooks`. This is a temporary workaround that enables you to install all necessary packages while maintaining the project's functionality.
 
 
 
