@@ -224,6 +224,9 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 - **Enhance MongoDB logging.**  
   [PR #48]( https://github.com/Karaterzidi/thm-full-stack-search/pull/48)
 
+- **Created Github action.**  
+  [PR #50]( https://github.com/Karaterzidi/thm-full-stack-search/pull/50)
+
 ## General Improvements / Observations
 
 - **Tests**: Implemented unit and integration tests.
@@ -236,6 +239,7 @@ To run all tests: `npm test`
 - **Centralized Debounce Logic**: Introduced a new hook `useSearchLogic` to centralize state management, debouncing, and data fetching, simplifying the `SearchPage` component.
 - **React Query Integration**: Improved data fetching and state management by introducing `React Query` for caching, synchronization, and error handling.
 
+- **Github actions**: Created a github action to run the unit and integration tests automatically whenever you push a new branch. `ci-run-tests.yml`
   
 ## API Enhancements
 
