@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest"; // Importing testing utilities
-import { renderHook } from "@testing-library/react-hooks"; // Function to render custom hooks for testing
+import { renderHook } from "@testing-library/react"; // Importing functions to test custom hooks
 import { useQuery } from "@tanstack/react-query"; // Importing the useQuery hook for mocking
 import useSearchData from "../../useSearchData"; // Importing the custom hook to test
 
