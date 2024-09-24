@@ -93,12 +93,7 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
 ## Setup
 1. Fork the repo
 2. Clone it
-3. To install the project dependencies, run the following command:
-
-`npm install --legacy-peer-deps`
-
-The `--legacy-peer-deps` flag allows npm to bypass strict peer dependency checks, helping to resolve conflicts that can occur when libraries expect different versions of shared dependencies, as is the case with `@testing-library/react-hooks`. This is a temporary workaround that enables you to install all necessary packages while maintaining the project's functionality.
-
+3. Install the project dependencies `npm install`
 4. Ensure it runs on `npm run start`
 
 ## Features Implemented
