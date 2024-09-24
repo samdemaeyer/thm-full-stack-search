@@ -231,6 +231,8 @@ For larger or more time-intensive changes, you're welcome to outline your ideas 
   [PR #51]( https://github.com/Karaterzidi/thm-full-stack-search/pull/51)
   & https://github.com/Karaterzidi/thm-full-stack-search/security/dependabot/6
   
+- **Remove react hooks library**  
+  [PR #55]( https://github.com/Karaterzidi/thm-full-stack-search/pull/55)
 
 ## General Improvements / Observations
 
