@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"; // Importing testing utilities
-import { renderHook, act } from "@testing-library/react-hooks"; // Function to render custom hooks for testing
+import { renderHook, act } from "@testing-library/react"; // Use renderHook from @testing-library/react
 import { useSearchLogic } from "../../useSearchLogic"; // Importing the custom hook to test
 import useDebounce from "../../useDebounce"; // Mock this hook
 import useSearchData from "../../useSearchData"; // Mock this hook
